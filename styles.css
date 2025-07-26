@@ -9,6 +9,9 @@
   --primary-color: #004d61; /* Σκούρο Τυρκουάζ */
   --accent-color: #88395b; /* Ζωηρό Κεχριμπαρένιο */
   --highlight-color: #2ec4b6; /* Φωτεινό Τυρκουάζ */
+  --timeline-date-color: #1a237e; /* Νέο: Βαθύ Μπλε για ημερομηνίες */
+  --timeline-title-color: #d72660; /* Νέο: Έντονο Ροζ/Κόκκινο για τίτλους */
+  --timeline-line-color: #2ec4b6; /* Νέο: Φωτεινό Τυρκουάζ για γραμμή/κύκλους */
   --bg-light: #f0f4f8; /* Απαλό Γαλάζιο */
   --text-dark: #102a43; /* Πολύ Σκούρο Μπλε */
   --section-padding: 60px;
@@ -695,8 +698,8 @@ footer a:hover {
 .timeline {
   position: relative;
   margin: 40px 0 0 0;
-  padding-left: 10px;
-  border-left: 4px solid var(--accent-color);
+  padding-left: 7.5px;
+  border-left: 6px solid var(--timeline-line-color); /* Updated color */
 }
 
 .timeline-item {
@@ -715,7 +718,7 @@ footer a:hover {
   transform: translateY(-50%);
   min-width: 80px;
   font-weight: 600;
-  color: #88395b;
+  color: var(--timeline-date-color); /* Updated color */
   font-size: 1.05rem;
   text-align: right;
   white-space: nowrap;
@@ -740,7 +743,7 @@ footer a:hover {
 
 .timeline-content strong {
   display: block;
-  color: var(--accent-color);
+  color: var(--primary-color); /* Changed to primary color */
   font-size: 1.13rem;
   font-weight: 700;
   margin-bottom: 4px;
@@ -754,10 +757,10 @@ footer a:hover {
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  background: var(--accent-color);
+  background: var(--timeline-line-color); /* Updated color */
   border-radius: 50%;
   border: 3px solid #fff;
-  box-shadow: 0 0 0 2px var(--accent-color);
+  box-shadow: 0 0 0 2px var(--timeline-line-color); /* Updated color */
   z-index: 1;
 }
 
