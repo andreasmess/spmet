@@ -64,6 +64,50 @@ if ("ResizeObserver" in window) {
   window.addEventListener("resize", updateHeaderHeight);
 }
 
+// Native scrolling supports touch and keeps every news card reachable without JS.
+const newsCarousel = document.querySelector("#news-carousel");
+const newsPrevious = document.querySelector("[data-news-previous]");
+const newsNext = document.querySelector("[data-news-next]");
+const newsCarouselStatus = document.querySelector(".news-carousel-status");
+const carouselCards = Array.from(newsCarousel.querySelectorAll(".news-card"));
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function newsCardStep() {
+  return carouselCards[1].offsetLeft - carouselCards[0].offsetLeft;
+}
+
+function updateNewsCarousel() {
+  const step = newsCardStep();
+  const first = Math.min(carouselCards.length, Math.floor((newsCarousel.scrollLeft + 2) / step) + 1);
+  const last = Math.min(carouselCards.length, Math.ceil((newsCarousel.scrollLeft + newsCarousel.clientWidth - 2) / step));
+  const label = first === last ? `Νέο ${first} από ${carouselCards.length}` : `Νέα ${first}–${last} από ${carouselCards.length}`;
+  if (newsCarouselStatus.textContent !== label) newsCarouselStatus.textContent = label;
+  newsPrevious.disabled = newsCarousel.scrollLeft <= 2;
+  newsNext.disabled = newsCarousel.scrollLeft + newsCarousel.clientWidth >= newsCarousel.scrollWidth - 2;
+}
+
+function moveNewsCarousel(direction) {
+  newsCarousel.scrollBy({ left: direction * newsCardStep(), behavior: reducedMotion.matches ? "instant" : "smooth" });
+}
+
+document.querySelector(".news-carousel-controls").hidden = false;
+newsPrevious.addEventListener("click", () => moveNewsCarousel(-1));
+newsNext.addEventListener("click", () => moveNewsCarousel(1));
+newsCarousel.addEventListener("scroll", updateNewsCarousel, { passive: true });
+newsCarousel.addEventListener("keydown", (event) => {
+  if (event.target !== newsCarousel) return;
+  if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+    event.preventDefault();
+    moveNewsCarousel(event.key === "ArrowLeft" ? -1 : 1);
+  }
+});
+if ("ResizeObserver" in window) {
+  new ResizeObserver(updateNewsCarousel).observe(newsCarousel);
+} else {
+  window.addEventListener("resize", updateNewsCarousel);
+}
+updateNewsCarousel();
+
 // Keep the original details as a fallback; supported browsers get a wide reader.
 const newsReader = document.querySelector(".news-reader");
 const newsArticles = Array.from(document.querySelectorAll(".news-details[id]"));

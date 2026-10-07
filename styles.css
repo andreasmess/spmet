@@ -798,12 +798,89 @@ footer a:hover {
   line-height: 1.7;
 }
 
-.progress-grid,
-.news-grid {
+.progress-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
   align-items: start;
+}
+
+.news-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 48px) / 3);
+  gap: 24px;
+  align-items: start;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  padding: 4px 0 16px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-color) #d9e2ec;
+}
+
+.news-grid > .news-card {
+  scroll-snap-align: start;
+}
+
+.news-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.news-carousel-controls[hidden] {
+  display: none;
+}
+
+.news-carousel-status {
+  color: #486581;
+  font-size: 0.9rem;
+}
+
+.news-carousel-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.news-carousel-buttons button {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d9e2ec;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.news-carousel-buttons button:hover:not(:disabled) {
+  background: #f0f4f8;
+}
+
+.news-carousel-buttons button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.news-carousel-buttons button:focus-visible,
+.news-grid:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1100px) {
+  .news-grid {
+    grid-auto-columns: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .news-grid {
+    grid-auto-columns: 100%;
+  }
 }
 
 .progress-card {
@@ -830,6 +907,7 @@ footer a:hover {
 }
 
 .news-card {
+  position: relative;
   min-width: 0;
   border: 1px solid #d9e2ec;
   border-radius: 10px;
@@ -850,6 +928,12 @@ footer a:hover {
   padding: 24px;
   line-height: 1.7;
   overflow-wrap: anywhere;
+}
+
+.news-card > .news-source-logo {
+  box-sizing: border-box;
+  padding: 32px;
+  background: #f0f4f8;
 }
 
 .news-date {
@@ -1028,8 +1112,7 @@ footer a:hover {
 }
 
 @media (max-width: 900px) {
-  .progress-grid,
-  .news-grid {
+  .progress-grid {
     grid-template-columns: 1fr;
   }
 }

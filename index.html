@@ -451,11 +451,43 @@
         <div class="container">
           <h2>Νέα Σωματείου</h2>
           <p class="section-intro">
-            Οι δημοσιευμένες παρεμβάσεις και συναντήσεις του Σωματείου, από την
-            πιο πρόσφατη.
+            Οι δημοσιευμένες παρεμβάσεις, συναντήσεις και αναφορές στον Τύπο
+            για το Σωματείο, από την πιο πρόσφατη.
           </p>
 
-          <div class="news-grid">
+          <div class="news-carousel-controls" hidden>
+            <p class="news-carousel-status" aria-live="polite" aria-atomic="true"></p>
+            <div class="news-carousel-buttons">
+              <button type="button" data-news-previous aria-label="Προηγούμενα νέα" aria-controls="news-carousel">←</button>
+              <button type="button" data-news-next aria-label="Επόμενα νέα" aria-controls="news-carousel">→</button>
+            </div>
+          </div>
+          <div class="news-grid" id="news-carousel" role="region" aria-label="Νέα Σωματείου — οριζόντια κύλιση" tabindex="0">
+            <article class="news-card" id="news-alfavita" aria-labelledby="news-alfavita-title">
+              <img
+                class="news-source-logo"
+                src="assets/alfavita-logo.svg"
+                alt="Alfavita"
+                width="250"
+                height="60"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="news-card-content">
+                <p class="news-date">
+                  <time datetime="2026-09-24">24 Σεπτεμβρίου 2026</time> · Alfavita
+                </p>
+                <h3 id="news-alfavita-title">Το Alfavita γράφει για το αίτημά μας</h3>
+                <p>
+                  Το Alfavita δημοσίευσε άρθρο για την παρέμβαση του Σωματείου
+                  στην Πολιτεία και το αίτημά μας για ίση μεταχείριση και
+                  αναγνώριση των επαγγελματικών δικαιωμάτων των αποφοίτων.
+                </p>
+                <a class="article-permalink" href="https://www.alfavita.gr/ekpaideysi/561443_somateio-ptyhioyhon-mihanikon-energeiakis-tehnologias-parembasi-stin-politeia-gia">
+                  Διαβάστε το άρθρο στο Alfavita
+                </a>
+              </div>
+            </article>
             <article class="news-card" aria-labelledby="news-kke-title">
               <img
                 src="assets/synantisi.webp"
