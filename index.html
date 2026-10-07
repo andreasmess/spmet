@@ -630,11 +630,6 @@
             method="POST"
             class="contact-form"
           >
-            <input
-              type="hidden"
-              name="_next"
-              value="https://spmet.gr/thankyou.html"
-            />
             <div class="form-group">
               <label for="name">Όνομα</label>
               <input
@@ -655,7 +650,7 @@
                 required
               />
             </div>
-            <div class="form-group" style="grid-column: span 2">
+            <div class="form-group form-group-wide">
               <label for="message">Μήνυμα</label>
               <textarea
                 id="message"
@@ -666,6 +661,12 @@
               ></textarea>
             </div>
             <button type="submit">Αποστολή</button>
+            <div class="form-status" role="status" aria-live="polite" aria-atomic="true">
+              <p class="form-status-message"></p>
+              <a class="form-status-email" href="mailto:spmet.teiathinas@gmail.com" hidden>
+                Επικοινωνήστε στο spmet.teiathinas@gmail.com
+              </a>
+            </div>
           </form>
         </div>
       </section>
@@ -680,6 +681,7 @@
         </p>
       </div>
     </footer>
+    <script src="phase-one.js" defer></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         // FAQ functionality

@@ -1,0 +1,75 @@
+// Keep fixed-header offsets correct when the logo wraps or fonts finish loading.
+const header = document.querySelector("header");
+function updateHeaderHeight() {
+  document.documentElement.style.setProperty(
+    "--header-height",
+    `${header.getBoundingClientRect().height}px`
+  );
+}
+updateHeaderHeight();
+if ("ResizeObserver" in window) {
+  new ResizeObserver(updateHeaderHeight).observe(header);
+} else {
+  window.addEventListener("resize", updateHeaderHeight);
+}
+
+// Align direct section links after the header and external fonts have settled.
+window.addEventListener("load", () => {
+  updateHeaderHeight();
+  const target = Array.from(document.querySelectorAll("main section[id]"))
+    .find((section) => `#${section.id}` === window.location.hash);
+  if (target) target.scrollIntoView();
+});
+
+// Without fetch support, retain the normal Formspree HTML submission flow.
+const form = document.querySelector(".contact-form");
+if (window.fetch && window.FormData && window.AbortController) {
+  const button = form.querySelector('button[type="submit"]');
+  const status = form.querySelector(".form-status");
+  const message = form.querySelector(".form-status-message");
+  const email = form.querySelector(".form-status-email");
+  let submitting = false;
+
+  function showStatus(state, text) {
+    status.dataset.state = state;
+    message.textContent = text;
+    email.hidden = state !== "error";
+  }
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (submitting || !form.reportValidity()) return;
+
+    const body = new FormData(form);
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 20000);
+    submitting = true;
+    button.disabled = true;
+    button.textContent = "Αποστολή…";
+    form.setAttribute("aria-busy", "true");
+    showStatus("pending", "Το μήνυμά σας αποστέλλεται…");
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body,
+        headers: { Accept: "application/json" },
+        signal: controller.signal,
+      });
+      if (!response.ok) {
+        showStatus("error", "Η αποστολή απέτυχε. Τα στοιχεία σας διατηρήθηκαν. Δοκιμάστε ξανά ή επικοινωνήστε μέσω email.");
+        return;
+      }
+      form.reset();
+      showStatus("success", "Το μήνυμά σας στάλθηκε επιτυχώς. Ευχαριστούμε για την επικοινωνία!");
+    } catch {
+      showStatus("error", "Δεν μπορέσαμε να επιβεβαιώσουμε την αποστολή. Τα στοιχεία σας διατηρήθηκαν. Ελέγξτε τη σύνδεσή σας πριν δοκιμάσετε ξανά ή επικοινωνήστε μέσω email.");
+    } finally {
+      window.clearTimeout(timeout);
+      submitting = false;
+      button.disabled = false;
+      button.textContent = "Αποστολή";
+      form.removeAttribute("aria-busy");
+    }
+  });
+}
