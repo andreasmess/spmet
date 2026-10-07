@@ -64,13 +64,85 @@ if ("ResizeObserver" in window) {
   window.addEventListener("resize", updateHeaderHeight);
 }
 
-// Open linked news articles before aligning their position below the header.
-function openLinkedArticle() {
-  const article = Array.from(document.querySelectorAll(".news-details[id]"))
-    .find((details) => `#${details.id}` === window.location.hash);
-  if (article) {
+// Keep the original details as a fallback; supported browsers get a wide reader.
+const newsReader = document.querySelector(".news-reader");
+const newsArticles = Array.from(document.querySelectorAll(".news-details[id]"));
+const supportsNewsReader = typeof newsReader.showModal === "function";
+let currentArticle = null;
+let previousArticleHash = "#news";
+
+function showNewsArticle(article) {
+  if (!supportsNewsReader) {
     article.open = true;
     article.scrollIntoView();
+    return;
+  }
+  if (currentArticle === article && newsReader.open) return;
+  currentArticle = article;
+  const card = article.closest(".news-card");
+  const title = document.createElement("h2");
+  title.id = "news-reader-title";
+  title.textContent = card.querySelector("h3").textContent.trim();
+  const photo = card.querySelector("img").cloneNode(true);
+  photo.loading = "eager";
+  photo.sizes = "(max-width: 900px) 90vw, 800px";
+  newsReader.querySelector(".news-reader-content").replaceChildren(
+    card.querySelector(".news-date").cloneNode(true),
+    title,
+    photo,
+    article.querySelector(".news-article").cloneNode(true)
+  );
+  document.documentElement.classList.add("news-reader-open");
+  if (!newsReader.open) newsReader.showModal();
+  newsReader.scrollTop = 0;
+  newsReader.querySelector(".news-reader-close").focus({ preventScroll: true });
+}
+
+if (supportsNewsReader) {
+  newsArticles.forEach((article) => {
+    const summary = article.querySelector("summary");
+    summary.setAttribute("aria-haspopup", "dialog");
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+      previousArticleHash = window.location.hash || "#news";
+      history.pushState(null, "", `#${article.id}`);
+      showNewsArticle(article);
+    });
+  });
+  newsReader.querySelector(".news-reader-close").addEventListener("click", () => newsReader.close());
+  let pointerStartedOutside = false;
+  function outsideReader(event) {
+    const bounds = newsReader.getBoundingClientRect();
+    return event.clientX < bounds.left || event.clientX > bounds.right ||
+      event.clientY < bounds.top || event.clientY > bounds.bottom;
+  }
+  newsReader.addEventListener("pointerdown", (event) => {
+    pointerStartedOutside = outsideReader(event);
+  });
+  newsReader.addEventListener("click", (event) => {
+    if (pointerStartedOutside && outsideReader(event)) newsReader.close();
+    pointerStartedOutside = false;
+  });
+  newsReader.addEventListener("close", () => {
+    document.documentElement.classList.remove("news-reader-open");
+    if (currentArticle) {
+      if (window.location.hash === `#${currentArticle.id}`) {
+        history.replaceState(null, "", previousArticleHash);
+      }
+      currentArticle.querySelector("summary").focus({ preventScroll: true });
+      currentArticle = null;
+    }
+  });
+}
+
+function openLinkedArticle() {
+  const article = newsArticles
+    .find((details) => `#${details.id}` === window.location.hash);
+  if (article) {
+    previousArticleHash = "#news";
+    showNewsArticle(article);
+  } else if (supportsNewsReader && newsReader.open) {
+    newsReader.close();
   }
 }
 window.addEventListener("hashchange", openLinkedArticle);
