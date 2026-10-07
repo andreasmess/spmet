@@ -50,10 +50,12 @@ silence; describe what has actually been published.
 ## Maintain legal sources and membership information
 
 Each `.timeline-item` has a `.source-note`. Prefer original documents or official
-publications. Keep missing-original notices until copies are available. The four
-ministry documents dated 27/06/1995, 30/09/2009, 19/01/2012, and 15/06/2012 still
-need original copies or public links. Use descriptive link text; say when a link
-opens a PDF. Recheck summaries against the source before changing legal claims.
+publications. The four ministry documents dated 27/06/1995, 30/09/2009,
+07/02/2012, and 15/06/2012 are linked to scanned PDFs in `assets/`.
+Use filenames in the form `ministry-YYYY-MM-DD-document-number.pdf` and
+descriptive link text that identifies PDFs as scanned copies. The 07/02/2012
+document includes 19/01/2012 in its protocol reference; use its printed document
+date in the timeline. Recheck summaries against the source before changing legal claims.
 
 Membership eligibility and required documents must come from the association.
 The contact form sends an enquiry; it does not register a member or issue a
