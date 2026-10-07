@@ -20,26 +20,27 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
     <header>
       <div class="container nav-container">
         <div class="logo">
-          <img src="logo.jpg" alt="ΣΠΜΕΤ Logo" />
+          <img src="logo.jpg" alt="Λογότυπο ΣΠΜΕΤ" />
           <span class="logo-text">
-            Σωματείο Πτυχιουχων Μηχανικών<br />Ενεργειακής Τεχνολογίας
-            Τ.Ε.Ι</span
+            Σωματείο Πτυχιούχων Μηχανικών<br />Ενεργειακής Τεχνολογίας
+            Τ.Ε.Ι. Αθήνας</span
           >
         </div>
-        <button class="menu-toggle" aria-label="Toggle Menu">
-          <i class="fas fa-bars"></i>
+        <button class="menu-toggle" type="button" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="primary-navigation">
+          <span class="menu-icon" aria-hidden="true">☰</span>
         </button>
-        <nav>
+        <nav id="primary-navigation" aria-label="Κύρια πλοήγηση">
           <ul>
             <li><a href="#about">Σχετικά</a></li>
             <li><a href="#request">Αίτημα</a></li>
             <li><a href="#legal">Πλαίσιο</a></li>
             <li><a href="#benefits">Οφέλη</a></li>
-            <li><a href="#news">Νέα Συλλόγου</a></li>
-            <!-- <li><a href="#faq">FAQ</a></li> -->
+            <li><a href="#news">Νέα Σωματείου</a></li>
+            <li><a href="#faq">Συχνές ερωτήσεις</a></li>
             <li><a href="#contact">Επικοινωνία</a></li>
           </ul>
         </nav>
@@ -63,7 +64,7 @@
       </div>
     </section>
 
-    <main>
+    <main id="main-content" tabindex="-1">
       <section id="progress" aria-labelledby="progress-title">
         <div class="container">
           <h2 id="progress-title">Η πορεία του αιτήματος</h2>
@@ -91,39 +92,27 @@
       <!-- About -->
       <section id="about">
         <div class="container">
-          <h3>Σχετικά με τον Σωματείο</h3>
+          <h2>Σχετικά με το Σωματείο</h2>
           <div class="about-content">
             <div class="about-text">
-              <p>
-                Το Σωματείο Αποφοίτων του Τμήματος Ενεργειακής Τεχνολογίας
-                Τ.Ε.Ι. Αθήνας (ΣΠΜΕΤ) συγκροτήθηκε με σκοπό την ενίσχυση της
-                συλλογικής φωνής και την προάσπιση των δικαιωμάτων των αποφοίτων
-                μας. Από την ίδρυσή του συμμετέχει ενεργά σε διαβουλεύσεις με
-                εκπροσώπους του Υπουργείου Ανάπτυξης και Παιδείας, επιδιώκοντας
-                την αναγνώριση της εξειδίκευσής μας στην Ενεργειακή Μηχανολογία
-                και Ενεργειακή Ηλεκτρολογία.
-                <br /><br />
-                Το Τμήμα Ενεργειακής Τεχνολογίας είναι ένα από τα επτά Τµήµατα
-                Μηχανικών της Σχολής Τεχνολογικών Εφαρμογών του Τ.Ε.Ι. Αθήνας.
-                Ιδρύθηκε για να καλύψει τις ανάγκες εκπαίδευσης στελεχών υψηλής
-                στάθμης σε τομείς επιστημών μηχανικού µε εξειδίκευση στο πεδίο
-                της Ενεργειακής Μηχανολογίας και στο πεδίο της Ενεργειακής
-                Ηλεκτρολογίας, προήλθε δε από τη συγχώνευση των Τμημάτων
-                Μηχανολογίας και Ηλεκτρολογίας του Τ.Ε.Ι Αθήνας.
-                <br /><br />
-                Παρά τον ανωτέρω σκοπό της ίδρυσής του και κυρίως το γεγονός ότι
-                ανταποκρίθηκε σε αυτόν κατά τον μέγιστο δυνατό βαθμό από το 1984
-                (έτος ίδρυσης) έως σήμερα, οι πτυχιούχοι του στερούνται
-                αναιτιολόγητα της δυνατότητας εγγραφής τους στο κατάλληλο
-                επαγγελματικό μητρώο. Η αναιτιολόγητη αυτή στέρηση έχει
-                δυσβάσταχτες επιπτώσεις στην καθιέρωση ίσων επαγγελματικών
-                ευκαιριών με αποφοίτους άλλων ισότιμων Εκπαιδευτικών Ιδρυμάτων
-                και στην ομαλή συμμετοχή τους σε προκηρύξεις θέσεων εργασίας
-                τόσο του ιδιωτικού, όσο και του δημόσιου τομέα.
-              </p>
+              <p>Το Σωματείο Πτυχιούχων Μηχανικών Ενεργειακής Τεχνολογίας Τ.Ε.Ι. Αθήνας
+                (ΣΠΜΕΤ) συγκροτήθηκε για την ενίσχυση της συλλογικής φωνής και την
+                προάσπιση των δικαιωμάτων των αποφοίτων. Μέσα από παρεμβάσεις προς
+                τα αρμόδια Υπουργεία και το ΠΑ.Δ.Α., διεκδικεί την επαγγελματική
+                αναγνώριση στις κατευθύνσεις Ενεργειακής Μηχανολογίας και Ενεργειακής Ηλεκτρολογίας.</p>
+              <p>Η ιστορία του Τμήματος ξεκινά το 1984, με τη συγχώνευση των Τμημάτων
+                Μηχανολογίας και Ηλεκτρολογίας, όπως αναφέρει ο
+                <a href="https://eee.uniwa.gr/documents/odigosET_11-12.pdf">οδηγός σπουδών 2011–2012 (PDF, ΠΑ.Δ.Α.)</a>.
+                Η <a href="https://www.kke.gr/article/Na-anagnoristoyn-ta-epaggelmatika-dikaiomata-ton-apofoiton-toy-tmimatos-Mixanikon-Energeiakis-Texnologias-toy-proin-TEI-Athinas/">δημοσιευμένη ερώτηση βουλευτών του ΚΚΕ της 4ης Ιουλίου 2024</a>
+                περιγράφει την περίοδο 2001–2018 ως μεταγενέστερο στάδιο του Τμήματος Μηχανικών
+                Ενεργειακής Τεχνολογίας. Οι δύο χρονολογίες αναφέρονται σε διαφορετικά στάδια της ιστορίας του.</p>
+              <p>Το Σωματείο αναδεικνύει τις δυσκολίες εγγραφής των αποφοίτων στο κατάλληλο
+                επαγγελματικό μητρώο και απόκτησης των απαιτούμενων βεβαιώσεων.
+                Οι δυσκολίες αυτές επηρεάζουν την επαγγελματική τους πορεία και
+                τη συμμετοχή σε προκηρύξεις θέσεων εργασίας.</p>
             </div>
             <div class="about-logo">
-              <img src="logo.jpg" alt="ΣΠΜΕΤ Logo" />
+              <img src="logo.jpg" alt="Λογότυπο ΣΠΜΕΤ" />
             </div>
           </div>
         </div>
@@ -132,18 +121,18 @@
       <!-- Request -->
       <section id="request">
         <div class="container">
-          <h3>Το Αίτημα</h3>
+          <h2>Το αίτημα</h2>
           <div class="cards">
             <div class="card">
-              <h4>Σύσταση του προβλεπόμενου Μητρώου</h4>
+              <h3>Σύσταση επαγγελματικού μητρώου</h3>
               <p>
-                Ενσωμάτωση των Π.Δ. 87/1996 & 55/2000 για καταγραφή των
-                αποφοίτων στο επίσημο μητρώο.
+                Θεσμική επίλυση του ζητήματος εγγραφής των αποφοίτων στο
+                κατάλληλο επαγγελματικό μητρώο.
               </p>
             </div>
 
             <div class="card">
-              <h4>Αποκατάσταση Δικαιωμάτων</h4>
+              <h3>Αποκατάσταση δικαιωμάτων</h3>
               <p>
                 Έκδοση βεβαίωσης εγγραφής στο Βιβλίο Πτυχιούχων Ανώτερων
                 Τεχνικών Σχολών Ειδικότητας Μηχανολόγου & Άδεια Ηλεκτρολόγου Β΄
@@ -157,7 +146,7 @@
       <!-- Legal Framework -->
       <section id="legal">
         <div class="container">
-          <h3>Χρονολογική Παρουσίαση Νομικών Κειμένων & Αποφάσεων</h3>
+          <h2>Χρονολογική παρουσίαση νομικών κειμένων και αποφάσεων</h2>
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-date">1984</div>
@@ -165,6 +154,7 @@
                 <strong>Ίδρυση Τμήματος Ενεργειακής Τεχνολογίας</strong><br />
                 Ίδρυση του Τμήματος Ενεργειακής Τεχνολογίας του Τ.Ε.Ι. Αθήνας,
                 μέσω συγχώνευσης των Τμημάτων Μηχανολογίας και Ηλεκτρολογίας.
+                <p class="source-note"><a href="https://eee.uniwa.gr/documents/odigosET_11-12.pdf">Πηγή: οδηγός σπουδών 2011–2012 (PDF, ΠΑ.Δ.Α.)</a></p>
               </div>
             </div>
             <div class="timeline-item">
@@ -177,22 +167,25 @@
                 Αναγνώριση των πτυχιούχων του Τμήματος, ανεξαρτήτως κατεύθυνσης,
                 ως Τεχνολόγων Μηχανολόγων ή Ηλεκτρολόγων, με πράξη ισοτιμίας από
                 το Ι.Τ.Ε.
+                <p class="source-note">Το πρωτότυπο έγγραφο δεν έχει αναρτηθεί στον ιστότοπο. <a href="#contact">Ζητήστε το από το Σωματείο</a>.</p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-date">1996</div>
               <div class="timeline-content">
                 <strong>Προεδρικό Διάταγμα 87/1996</strong><br />
-                Προβλέπει τη δυνατότητα σύστασης μητρώου για πτυχιούχους
-                αντίστοιχων ειδικοτήτων.
+                Αφορά τις ψυκτικές εγκαταστάσεις, τα επαγγελματικά προσόντα και
+                την έκδοση αδειών για τις σχετικές εργασίες.
+                <p class="source-note"><a href="https://www.elinyae.gr/ethniki-nomothesia/pd-871996-fek-72a-2541996">Π.Δ. 87/1996 — ΦΕΚ Α΄ 72/25.04.1996 (ΕΛΙΝΥΑΕ)</a></p>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-date">2000</div>
               <div class="timeline-content">
                 <strong>Προεδρικό Διάταγμα 55/2000</strong><br />
-                Συμπληρώνει/τροποποιεί ρυθμίσεις για την επαγγελματική
-                κατοχύρωση τεχνολόγων μηχανικών.
+                Τροποποιεί το Π.Δ. 38/1991 για τις θερμοϋδραυλικές εγκαταστάσεις
+                και τις επαγγελματικές άδειες των σχετικών εργασιών.
+                <p class="source-note"><a href="https://www.elinyae.gr/ethniki-nomothesia/pd-552000-fek-44a-132000">Π.Δ. 55/2000 — ΦΕΚ Α΄ 44/01.03.2000 (ΕΛΙΝΥΑΕ)</a></p>
               </div>
             </div>
             <div class="timeline-item">
@@ -202,6 +195,7 @@
                 ><br />
                 Σηματοδοτεί την αρχή αποκλεισμού των πτυχιούχων του Τμήματος από
                 τα επαγγελματικά μητρώα.
+                <p class="source-note">Το πρωτότυπο έγγραφο δεν έχει αναρτηθεί στον ιστότοπο. <a href="#contact">Ζητήστε το από το Σωματείο</a>.</p>
               </div>
             </div>
             <div class="timeline-item">
@@ -213,6 +207,7 @@
                 ><br />
                 Επικυρώνει τον αποκλεισμό από μητρώα Μηχανολόγων και
                 Ηλεκτρολόγων Τ.Ε.
+                <p class="source-note">Το πρωτότυπο έγγραφο δεν έχει αναρτηθεί στον ιστότοπο. <a href="#contact">Ζητήστε το από το Σωματείο</a>.</p>
               </div>
             </div>
             <div class="timeline-item">
@@ -223,6 +218,7 @@
                   Ανταγωνιστικότητας και Ναυτιλίας)</strong
                 ><br />
                 Συνέχιση της ίδιας κατεύθυνσης αποκλεισμού των αποφοίτων.
+                <p class="source-note">Το πρωτότυπο έγγραφο δεν έχει αναρτηθεί στον ιστότοπο. <a href="#contact">Ζητήστε το από το Σωματείο</a>.</p>
               </div>
             </div>
             <div class="timeline-item">
@@ -232,10 +228,11 @@
                   >Π.Δ. 112/2012, 113/2012, 114/2012, 115/2012, 1/2013,
                   108/2013</strong
                 ><br />
-                Οι βεβαιώσεις αναγγελίας καθορίζουν επαγγελματικά δικαιώματα για
-                τεχνολόγους μηχανικούς και τεχνολόγους ηλεκτρολόγους. Οι
-                απόφοιτοι του Τμήματος λαμβάνουν μόνο μερική κάλυψη των
-                προβλεπόμενων δικαιωμάτων μέσω περιορισμένων βεβαιώσεων.
+                Ρυθμίσεις για τις επαγγελματικές δραστηριότητες υδραυλικών,
+                χειριστών μηχανημάτων έργου, εγκαταστατών καύσης, τεχνικών
+                βιομηχανικών εγκαταστάσεων, ψυκτικών και ηλεκτρολόγων. Το Σωματείο
+                αναδεικνύει το ζήτημα της αποδοχής των βεβαιώσεων των αποφοίτων σε προκηρύξεις.
+                <p class="source-note"><a href="https://www.pamth.gov.gr/anakoinosi-gia-tis-epaggelmatikes-drastiriotites-ton-ydraylikon-cheiriston-michanimaton-ergoy-egkatastaseon-kaysis-ygron-kai-aerion-kaysimon-technikon-michanikon-viomichanikon-egkatastaseon-psykt-2/">Πηγή για τα έξι Π.Δ.: ανακοίνωση της Περιφέρειας Ανατολικής Μακεδονίας και Θράκης</a></p>
               </div>
             </div>
             <div class="timeline-item">
@@ -244,11 +241,10 @@
                 <strong
                   >Προεδρικό Διάταγμα 85/2022 (Προσοντολόγιο Δημοσίου)</strong
                 ><br />
-                Θέτει ως προϋποθέσεις συμμετοχής σε διαγωνισμούς την άδεια
-                Ηλεκτρολόγου Β' Τάξης και την βεβαίωση εγγραφής στο Βιβλίο
-                Πτυχιούχων Ανώτερων Τεχνικών Σχολών Ειδικότητας Μηχανολόγου, τις
-                οποίες οι πτυχιούχοι δεν μπορούν να αποκτήσουν, με αποτέλεσμα
-                αποκλεισμό από θέσεις του δημόσιου και ιδιωτικού τομέα.
+                Καθορίζει προσόντα διορισμού σε φορείς του Δημοσίου. Το Σωματείο
+                επισημαίνει δυσκολίες όταν οι προκηρύξεις απαιτούν επαγγελματικές
+                άδειες ή βεβαιώσεις που οι απόφοιτοι δεν μπορούν να αποκτήσουν.
+                <p class="source-note"><a href="https://www.ypes.gr/dimosiefsi-tou-p-d-85-2022-a-232-kathorismos-prosonton-diorismou-se-foreis-tou-dimosiou-prosontologio-kladologio/">Π.Δ. 85/2022 — δημοσίευση και εγκύκλιος (Υπουργείο Εσωτερικών)</a></p>
               </div>
             </div>
           </div>
@@ -258,14 +254,13 @@
       <!-- Benefits -->
       <section id="benefits">
         <div class="container">
-          <h3>Προσδοκώμενα Οφέλη</h3>
+          <h2>Προσδοκώμενα οφέλη</h2>
           <div class="cards">
             <div class="card">
               <div style="font-size: 2rem">✅</div>
               <p>
-                Σύσταση θεσμοθετημένου επαγγελματικού μητρώου για τους
-                πτυχιούχους του Τμήματος Ενεργειακής Τεχνολογίας, όπως
-                προβλέπεται από το ισχύον νομικό πλαίσιο.
+                Θεσμική κατοχύρωση της εγγραφής των πτυχιούχων του Τμήματος
+                Ενεργειακής Τεχνολογίας στο κατάλληλο επαγγελματικό μητρώο.
               </p>
             </div>
             <div class="card">
@@ -304,48 +299,36 @@
         </div>
       </section>
 
-      <!-- FAQ -->
-      <!-- <section id="faq">
+      <section id="faq" aria-labelledby="faq-title">
         <div class="container">
-          <h3>Συχνές Ερωτήσεις (FAQ)</h3>
-          <div class="faq-item">
-            <button class="faq-question">
-              Τι προβλέπουν τα Προεδρικά Διατάγματα;
-            </button>
-            <div class="faq-answer">
-              <p>
-                Τα Π.Δ. 87/1996 & 55/2000 προβλέπουν τη δημιουργία νέου μητρώου
-                αποφοίτων Ενεργειακής Τεχνολογίας.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">
-              Γιατί χρειάζεται το νέο μητρώο;
-            </button>
-            <div class="faq-answer">
-              <p>
-                Οι υπάρχουσες βεβαιώσεις δεν γίνονται δεκτές σε διαγωνισμούς
-                βάσει Π.Δ. 85/2022.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item">
-            <button class="faq-question">Ποια έγγραφα χρειάζονται;</button>
-            <div class="faq-answer">
-              <p>
-                Βεβαίωση εγγραφής στο επίσημο μητρώο & άδεια άσκησης
-                επαγγέλματος.
-              </p>
-            </div>
-          </div>
+          <h2 id="faq-title">Συχνές ερωτήσεις</h2>
+          <details class="faq-item">
+            <summary class="faq-question"><h3>Ποιους εκπροσωπεί το ΣΠΜΕΤ;</h3></summary>
+            <div class="faq-answer"><p>Το ΣΠΜΕΤ εκπροσωπεί τη συλλογική διεκδίκηση των αποφοίτων του Τμήματος Ενεργειακής Τεχνολογίας Τ.Ε.Ι. Αθήνας στις κατευθύνσεις Ενεργειακής Μηχανολογίας και Ενεργειακής Ηλεκτρολογίας. Για τις προϋποθέσεις εγγραφής ως μέλος, <a href="#membership">ζητήστε πληροφορίες από το Σωματείο</a>.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question"><h3>Τι διεκδικεί το Σωματείο;</h3></summary>
+            <div class="faq-answer"><p>Τη θεσμική επίλυση του ζητήματος εγγραφής των αποφοίτων στο κατάλληλο επαγγελματικό μητρώο και την αποκατάσταση των επαγγελματικών δικαιωμάτων τους. Δείτε <a href="#request">το αίτημα</a> και <a href="#legal">τα σχετικά κείμενα</a>.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question"><h3>Η φόρμα επικοινωνίας αποτελεί αίτηση εγγραφής;</h3></summary>
+            <div class="faq-answer"><p>Η φόρμα στέλνει μήνυμα στο Σωματείο. Δεν αποτελεί εγγραφή μέλους ή εγγραφή σε επαγγελματικό μητρώο. Για τη διαδικασία και τα δικαιολογητικά εγγραφής, <a href="#membership">επικοινωνήστε με το ΣΠΜΕΤ</a>.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question"><h3>Τι στοιχεία χρειάζονται για την πρώτη επικοινωνία;</h3></summary>
+            <div class="faq-answer"><p>Συμπληρώστε όνομα, email και μια σύντομη περιγραφή του ερωτήματός σας. Δεν χρειάζεται να στείλετε αντίγραφα πτυχίου, ταυτότητας ή άλλα προσωπικά δικαιολογητικά με το πρώτο μήνυμα.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-question"><h3>Πού μπορώ να παρακολουθώ τις εξελίξεις;</h3></summary>
+            <div class="faq-answer"><p>Στην <a href="#progress">πορεία του αιτήματος</a> και στα <a href="#news">χρονολογημένα νέα του Σωματείου</a>. Η σύνοψη αναφέρει την ημερομηνία των δημοσιευμένων ενημερώσεων στις οποίες βασίζεται. Για νεότερες πληροφορίες, <a href="#contact">επικοινωνήστε μαζί μας</a>.</p></div>
+          </details>
         </div>
-      </section> -->
+      </section>
 
       <!-- Νέα Συλλόγου -->
       <section id="news">
         <div class="container">
-          <h2>Νέα Συλλόγου</h2>
+          <h2>Νέα Σωματείου</h2>
           <p class="section-intro">Οι δημοσιευμένες παρεμβάσεις και συναντήσεις του Σωματείου, από την πιο πρόσφατη.</p>
 
           <div class="news-grid">
@@ -364,7 +347,7 @@
                       Αθήνας, αποτελούμενη από την Παναγιώτα Δεληγιάννη, πρόεδρο
                       του ΔΣ, τον Λευτέρη Παραγιουδάκη, αντιπρόεδρο, τον
                       Παναγιώτη Σκουμπέλο, γραμματέα, τον Δημήτρη Αβραμόπουλο,
-                      ταμεία και τον Μάρκο Γιαννακό, αναπληρωτή γραμματέα,
+                      ταμία και τον Μάρκο Γιαννακό, αναπληρωτή γραμματέα,
                       συναντήθηκε την Τρίτη 16 Σεπτεμβρίου με αντιπροσωπεία του
                       ΚΚΕ αποτελούμενη από την Αφροδίτη Κτενά, βουλευτή του ΚΚΕ,
                       και την Ευτυχία Χατζηδάκη, μέλος του Τμήματος Παιδείας και
@@ -372,7 +355,7 @@
                       Βουλή.
                     </p>
                   <p>
-                      Στη συνάντηση συζητήθηκε η μεγάλη εκκρεμότητα σχετικά το
+                      Στη συνάντηση συζητήθηκε η μεγάλη εκκρεμότητα σχετικά με το
                       χρονίζον ζήτημα των επαγγελματικών δικαιωμάτων των
                       αποφοίτων του συγκεκριμένου τμήματος, το οποίο λειτούργησε
                       από το 2001 ως το 2018 και 25 χρόνια τώρα δεν έχουν
@@ -529,11 +512,13 @@
       <!-- Contact -->
       <section id="contact">
         <div class="container">
-          <h3>Επικοινωνία με τον Σύλλογο</h3>
+          <h2>Επικοινωνία με το Σωματείο</h2>
+          <p class="section-intro" id="contact-required">Όλα τα πεδία είναι υποχρεωτικά.</p>
           <form
             action="https://formspree.io/f/xeokrlnz"
             method="POST"
             class="contact-form"
+            aria-describedby="contact-required contact-privacy"
           >
             <div class="form-group">
               <label for="name">Όνομα</label>
@@ -541,6 +526,7 @@
                 type="text"
                 id="name"
                 name="name"
+                autocomplete="name"
                 placeholder="Το όνομά σας"
                 required
               />
@@ -551,6 +537,7 @@
                 type="email"
                 id="email"
                 name="email"
+                autocomplete="email"
                 placeholder="example@domain.com"
                 required
               />
@@ -565,6 +552,15 @@
                 required
               ></textarea>
             </div>
+            <p class="contact-privacy" id="contact-privacy">
+              Το όνομα, το email και το μήνυμά σας αποστέλλονται μέσω της υπηρεσίας
+              Formspree στο ΣΠΜΕΤ για την επικοινωνία σχετικά με το αίτημά σας.
+              Μην συμπεριλαμβάνετε αριθμούς ταυτότητας ή άλλα ευαίσθητα στοιχεία.
+              Διαβάστε την <a href="https://formspree.io/legal/privacy-policy/">πολιτική απορρήτου του Formspree</a>.
+              Για ερωτήσεις σχετικά με τα δεδομένα σας ή αιτήματα πρόσβασης,
+              διόρθωσης ή διαγραφής, επικοινωνήστε στο
+              <a href="mailto:spmet.teiathinas@gmail.com">spmet.teiathinas@gmail.com</a>.
+            </p>
             <button type="submit">Αποστολή</button>
             <div class="form-status" role="status" aria-live="polite" aria-atomic="true">
               <p class="form-status-message"></p>
@@ -587,75 +583,5 @@
       </div>
     </footer>
     <script src="phase-one.js" defer></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // FAQ functionality
-        const faqQuestions = document.querySelectorAll(".faq-question");
-
-        faqQuestions.forEach((question) => {
-          question.addEventListener("click", () => {
-            const answer = question.nextElementSibling;
-            const isOpen = answer.style.display === "block";
-
-            // Close all other answers
-            document.querySelectorAll(".faq-answer").forEach((item) => {
-              item.style.display = "none";
-            });
-
-            // Toggle current answer
-            answer.style.display = isOpen ? "none" : "block";
-
-            // Update button text
-            question.textContent = isOpen
-              ? question.textContent.replace("−", "+")
-              : question.textContent.replace("+", "−");
-          });
-        });
-
-        // Mobile menu functionality
-        const menuToggle = document.querySelector(".menu-toggle");
-        const nav = document.querySelector("nav");
-        const navLinks = document.querySelectorAll("nav a");
-
-        function toggleMenu() {
-          nav.classList.toggle("active");
-          menuToggle.classList.toggle("active");
-          const icon = menuToggle.querySelector("i");
-          if (icon.classList.contains("fa-bars")) {
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-times");
-          } else {
-            icon.classList.remove("fa-times");
-            icon.classList.add("fa-bars");
-          }
-        }
-
-        menuToggle.addEventListener("click", (e) => {
-          e.stopPropagation();
-          toggleMenu();
-        });
-
-        // Close menu when clicking a link
-        navLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            if (nav.classList.contains("active")) {
-              toggleMenu();
-            }
-          });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener("click", (e) => {
-          if (
-            nav.classList.contains("active") &&
-            !nav.contains(e.target) &&
-            !menuToggle.contains(e.target)
-          ) {
-            toggleMenu();
-          }
-        });
-
-      });
-    </script>
   </body>
 </html>
