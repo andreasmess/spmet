@@ -13,9 +13,21 @@ if ("ResizeObserver" in window) {
   window.addEventListener("resize", updateHeaderHeight);
 }
 
-// Align direct section links after the header and external fonts have settled.
+// Open linked news articles before aligning their position below the header.
+function openLinkedArticle() {
+  const article = Array.from(document.querySelectorAll(".news-details[id]"))
+    .find((details) => `#${details.id}` === window.location.hash);
+  if (article) {
+    article.open = true;
+    article.scrollIntoView();
+  }
+}
+window.addEventListener("hashchange", openLinkedArticle);
+
+// Align direct section and article links after fonts and the header have settled.
 window.addEventListener("load", () => {
   updateHeaderHeight();
+  openLinkedArticle();
   const target = Array.from(document.querySelectorAll("main section[id]"))
     .find((section) => `#${section.id}` === window.location.hash);
   if (target) target.scrollIntoView();
@@ -23,6 +35,17 @@ window.addEventListener("load", () => {
 
 // Without fetch support, retain the normal Formspree HTML submission flow.
 const form = document.querySelector(".contact-form");
+document.querySelector("[data-membership-inquiry]").addEventListener("click", () => {
+  const message = form.querySelector("#message");
+  if (!message.value.trim()) {
+    message.value = "Ενδιαφέρομαι να γίνω μέλος του ΣΠΜΕΤ. Θα ήθελα πληροφορίες για τη διαδικασία εγγραφής και τα απαραίτητα δικαιολογητικά.";
+  }
+  // Let the contact anchor navigate before moving keyboard focus into the form.
+  requestAnimationFrame(() => {
+    form.querySelector("#name").focus({ preventScroll: true });
+  });
+});
+
 if (window.fetch && window.FormData && window.AbortController) {
   const button = form.querySelector('button[type="submit"]');
   const status = form.querySelector(".form-status");

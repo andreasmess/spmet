@@ -142,12 +142,12 @@ nav .social-link i {
 
 /* Hero Section */
 .hero {
-  height: 70vh;
+  min-height: 55vh;
   background: linear-gradient(135deg, var(--primary-color) 0%, #440017 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding: 64px 20px;
   position: relative;
   overflow: hidden;
   margin-top: var(--header-height);
@@ -177,13 +177,12 @@ nav .social-link i {
   backdrop-filter: blur(10px);
 }
 
-.hero-content h3 {
-  font-size: 2rem;
+.hero-content h1 {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  line-height: 1.25;
   margin-bottom: 20px;
   color: var(--primary-color);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .hero-content p {
@@ -244,6 +243,7 @@ section {
   background: #f9f9f9;
 }
 
+section h2,
 section h3 {
   text-align: center;
   margin-bottom: 25px;
@@ -624,7 +624,7 @@ footer a:hover {
 @media (max-width: 768px) {
   .hero {
     height: auto;
-    min-height: 70vh;
+    min-height: 0;
     padding: 40px 20px;
   }
 
@@ -632,7 +632,7 @@ footer a:hover {
     padding: 20px;
   }
 
-  .hero-content h3 {
+  .hero-content h1 {
     font-size: 1.5rem;
   }
 
@@ -665,6 +665,196 @@ footer a:hover {
   #contact h3 {
     font-size: 1.5rem;
     margin-bottom: 20px;
+  }
+}
+
+/* Visitor actions, progress summary, and readable news */
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.action-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 2px solid var(--primary-color);
+  border-radius: 6px;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.action-link:hover {
+  background: #003b4b;
+  border-color: #003b4b;
+}
+
+.action-link-secondary {
+  background: transparent;
+  color: var(--primary-color);
+}
+
+.action-link-secondary:hover {
+  background: #e6f3ff;
+}
+
+.hero-membership {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 8px;
+  color: var(--primary-color);
+}
+
+.section-intro {
+  max-width: 700px;
+  margin: -10px auto 28px;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.progress-grid,
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: start;
+}
+
+.progress-card {
+  min-width: 0;
+  padding: 24px;
+  background: #fff;
+  border-top: 4px solid var(--primary-color);
+  border-radius: 8px;
+  line-height: 1.7;
+}
+
+.progress-card h3,
+.news-card h3 {
+  text-align: left;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.progress-card a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--primary-color);
+}
+
+.news-card {
+  min-width: 0;
+  border: 1px solid #d9e2ec;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.news-card > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+  border-radius: 10px 10px 0 0;
+}
+
+.news-card-content {
+  padding: 24px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.news-date {
+  font-size: 0.9rem;
+  color: #486581;
+  margin-bottom: 12px;
+}
+
+.news-details {
+  margin-top: 16px;
+}
+
+.news-details summary {
+  color: var(--primary-color);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.news-article {
+  border-top: 1px solid #d9e2ec;
+  padding-top: 16px;
+}
+
+.news-article p + p {
+  margin-top: 16px;
+}
+
+.article-permalink {
+  display: inline-block;
+  margin-top: 16px;
+  color: var(--primary-color);
+}
+
+#membership {
+  background: #fff;
+}
+
+.membership-content {
+  max-width: 700px;
+  text-align: center;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+
+.membership-content .action-link {
+  margin: 20px 0;
+}
+
+.membership-content p a {
+  color: var(--primary-color);
+}
+
+.action-link:focus-visible,
+.hero-membership:focus-visible,
+.progress-card a:focus-visible,
+.news-details summary:focus-visible,
+.article-permalink:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .progress-grid,
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
   }
 }
 
