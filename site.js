@@ -1,3 +1,54 @@
+// Enhance navigation while keeping links available when JavaScript is disabled.
+document.documentElement.classList.add("js");
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("#primary-navigation");
+const mobileNavigation = window.matchMedia("(max-width: 1280px)");
+let navigationHasFocus = false;
+
+function setMenuOpen(open, restoreFocus = false) {
+  nav.classList.toggle("active", open);
+  menuToggle.classList.toggle("active", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Κλείσιμο μενού" : "Άνοιγμα μενού");
+  menuToggle.querySelector(".menu-icon").textContent = open ? "×" : "☰";
+  if (restoreFocus) menuToggle.focus();
+}
+
+menuToggle.addEventListener("click", () => {
+  setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+});
+nav.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    setMenuOpen(false);
+    // Move focus out of the closed menu and into the selected section.
+    const target = document.getElementById(link.hash.slice(1));
+    if (target) {
+      target.setAttribute("tabindex", "-1");
+    }
+  });
+});
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && nav.classList.contains("active")) {
+    setMenuOpen(false, true);
+  }
+});
+document.addEventListener("click", (event) => {
+  if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+    setMenuOpen(false);
+  }
+});
+document.addEventListener("focusin", (event) => {
+  navigationHasFocus = nav.contains(event.target);
+  if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+    setMenuOpen(false);
+  }
+});
+mobileNavigation.addEventListener("change", () => {
+  // Browsers may blur a link as soon as the mobile CSS hides the navigation.
+  const focusedLink = navigationHasFocus || nav.contains(document.activeElement);
+  setMenuOpen(false, mobileNavigation.matches && focusedLink);
+});
+
 // Keep fixed-header offsets correct when the logo wraps or fonts finish loading.
 const header = document.querySelector("header");
 function updateHeaderHeight() {
