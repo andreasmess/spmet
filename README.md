@@ -13,6 +13,8 @@ python3 -m http.server 8765 --bind 127.0.0.1
 
 Open http://127.0.0.1:8765/. Publishing is separate from local editing; use the
 repository's existing hosting workflow when the changes are ready.
+Do not test contact submissions by opening `index.html` as a `file://` URL;
+the JavaScript handler preserves the draft and asks you to use the local server.
 
 ## Files
 
@@ -89,6 +91,12 @@ shows pending, success, and failure feedback; without JavaScript the standard
 Formspree submission remains available. Keep the contact-data explanation and
 email address accurate. Confirm any retention or privacy-policy commitments
 with the association before publishing them.
+
+If Formspree returns HTTP 403 when using an HTTP/HTTPS page, inspect the failed
+POST request's Response in browser DevTools → Network. The status alone does
+not identify the rejection reason. Check the form endpoint and its configuration
+in the Formspree dashboard before changing the integration. Use mocked responses
+for automated tests so they do not send real messages.
 
 ## Check an update
 

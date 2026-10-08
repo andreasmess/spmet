@@ -230,6 +230,11 @@ if (window.fetch && window.FormData && window.AbortController) {
     event.preventDefault();
     if (submitting || !form.reportValidity()) return;
 
+    if (window.location.protocol === "file:") {
+      showStatus("error", "Η σελίδα έχει ανοίξει ως τοπικό αρχείο. Για να δοκιμάσετε τη φόρμα, ανοίξτε την μέσω του τοπικού web server (http://127.0.0.1:8765/) ή από το spmet.gr. Τα στοιχεία σας διατηρήθηκαν.");
+      return;
+    }
+
     const body = new FormData(form);
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 20000);
@@ -247,7 +252,10 @@ if (window.fetch && window.FormData && window.AbortController) {
         signal: controller.signal,
       });
       if (!response.ok) {
-        showStatus("error", "Η αποστολή απέτυχε. Τα στοιχεία σας διατηρήθηκαν. Δοκιμάστε ξανά ή επικοινωνήστε μέσω email.");
+        const errorText = response.status === 403
+          ? "Η υπηρεσία αποστολής απέρριψε το αίτημα (403). Τα στοιχεία σας διατηρήθηκαν. Επικοινωνήστε μέσω email."
+          : "Η αποστολή απέτυχε. Τα στοιχεία σας διατηρήθηκαν. Δοκιμάστε ξανά ή επικοινωνήστε μέσω email.";
+        showStatus("error", errorText);
         return;
       }
       form.reset();
