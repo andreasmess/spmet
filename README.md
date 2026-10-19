@@ -16,6 +16,13 @@ repository's existing hosting workflow when the changes are ready.
 Do not test contact submissions by opening `index.html` as a `file://` URL;
 the JavaScript handler preserves the draft and asks you to use the local server.
 
+Preview the YouTube player through the local HTTP URL above, rather than a
+`file://` URL or an IDE's embedded preview. YouTube requires an HTTP `Referer`
+to identify the embedding page; a missing referrer can cause player error 153.
+The iframe explicitly uses `referrerpolicy="strict-origin-when-cross-origin"`,
+as recommended by YouTube. If error 153 persists over HTTP, check whether a
+browser extension or privacy setting is stripping the referrer.
+
 ## Files
 
 - `index.html`: page content, source links, and search/sharing metadata.

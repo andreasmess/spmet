@@ -244,6 +244,39 @@ section h3 {
   z-index: 1;
 }
 
+/* Introductory video */
+.intro-video-player {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  margin: 0 auto;
+  border: 0;
+}
+
+@media (min-width: 769px) {
+  .intro-video-player {
+    max-width: 800px;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.intro-video-link {
+  margin-top: 20px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.intro-video-link a {
+  color: var(--primary-color);
+  text-underline-offset: 3px;
+}
+
+.intro-video-link a:hover {
+  color: var(--accent-color);
+}
+
 /* Cards */
 .cards {
   display: grid;
