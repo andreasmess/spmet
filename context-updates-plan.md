@@ -1,7 +1,7 @@
 # ΣΠΜΕΤ website — implementation plan for context review updates
 
 Date: 20 October 2026
-Status: Stages 1–2 completed; Stage 3 precedent implemented on 20 October 2026, with case and correspondence additions deferred for missing evidence. Stages 4–5 remain planned.
+Status: Stages 1–2 completed; Stage 3 precedent implemented, with case and correspondence additions deferred for missing evidence. Stage 4 omitted at the user's request on 20 October 2026. Stage 5 remains planned.
 Evidence baseline: [docs/context.md](docs/context.md).
 Implementation baseline: the current local [index.html](index.html), not a verified snapshot of the deployed site.
 
@@ -30,7 +30,7 @@ Keep the existing `plan.md` and `execution-plan.md` as records of the earlier wo
 | 1 | Evidence inventory and confirmed wording | Current files and available originals | Completed 20/10/2026; evidence limits recorded |
 | 2 | Updated requests and explanatory FAQ | Source checks for the relevant wording | Completed 20/10/2026 |
 | 3 | ASEP case, correspondence and precedent entries | Evidence for each entry; independently deliverable | Precedent implemented 20/10/2026; case and correspondence deferred for missing originals |
-| 4 | Historical clarification | Verified chronology or a narrowly worded editorial note | Planned |
+| 4 | Historical clarification | Verified chronology or a narrowly worded editorial note | Omitted at user request 20/10/2026; draft removed |
 | 5 | Content, link and presentation checks | All implemented entries | Planned |
 
 ## 1. Establish the evidence inventory
@@ -122,6 +122,8 @@ Acceptance: chronology, protocol, recipient and reply status are supported and d
 Stage 3 disposition: the 2025 originals, routing record and a dated reply-status confirmation remain unavailable. The existing general announcement is unchanged; the protocol-specific timeline entry and non-response statement remain deferred. This does not imply that the ministry has or has not replied since the dossier's original account.
 
 ## 6. Clarify the department's historical dates
+
+**Superseded by user instruction, 20 October 2026:** the founding date is not important to the public account; remove the historical clarification. The drafted editorial note and associated timeline edits were removed. The original meeting announcement and existing history entry remain unchanged. The tasks below are retained as the original proposal, not pending implementation requirements. Do not reintroduce the clarification in Stage 5.
 
 Targets: the 1984 timeline entry and the September 2025 meeting article, `#news-kke`. Context: §§1, 7 and 10.
 
