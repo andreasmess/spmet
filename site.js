@@ -59,6 +59,64 @@ function updateHeaderHeight() {
 }
 updateHeaderHeight();
 
+// Episode buttons switch the existing player without leaving or scrolling the page.
+const videoSection = document.querySelector("#intro-video");
+const videoPlayer = document.querySelector("#series-video-player");
+const videoTitle = document.querySelector("#video-current-title");
+const videoYouTubeLink = document.querySelector("#series-youtube-link");
+const videoEpisodes = Array.from(document.querySelectorAll(".video-episode"));
+
+function selectVideo(episode, { scroll = false, focus = false } = {}) {
+  const number = episode.dataset.videoNumber;
+  const title = episode.querySelector(".video-episode-title").textContent.trim();
+  const source = `https://www.youtube-nocookie.com/embed/${episode.dataset.videoId}`;
+  if (videoPlayer.src !== source) videoPlayer.src = source;
+  videoPlayer.title = `Βίντεο ${number}: ${title}`;
+  videoTitle.textContent = `${number}. ${title}`;
+  videoYouTubeLink.href = `https://www.youtube.com/watch?v=${episode.dataset.videoId}`;
+  videoYouTubeLink.textContent = `Παρακολουθήστε το βίντεο ${number} στο YouTube`;
+  videoEpisodes.forEach((button) => {
+    button.setAttribute("aria-pressed", String(button === episode));
+  });
+  if (scroll) videoSection.scrollIntoView({ block: "start" });
+  if (focus) videoTitle.focus({ preventScroll: true });
+}
+
+function selectLinkedVideo() {
+  const hash = window.location.hash;
+  const episode = videoEpisodes.find((link) => `#${link.id}` === hash);
+  if (episode) selectVideo(episode, { scroll: true });
+  else if (!hash || hash === "#intro-video") selectVideo(videoEpisodes[0]);
+}
+
+videoEpisodes.forEach((button) => {
+  button.addEventListener("click", () => {
+    const hash = `#${button.id}`;
+    if (window.location.hash !== hash) history.pushState(null, "", hash);
+    selectVideo(button);
+  });
+  button.disabled = false;
+});
+
+document.addEventListener("click", (event) => {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const link = event.target.closest("a");
+  if (!link) return;
+  const episode = videoEpisodes.find(
+    (item) => link.origin === window.location.origin &&
+      link.pathname === window.location.pathname && link.search === window.location.search &&
+      link.hash === `#${item.id}`
+  );
+  if (!episode) return;
+  event.preventDefault();
+  const hash = `#${episode.id}`;
+  if (window.location.hash !== hash) history.pushState(null, "", hash);
+  selectVideo(episode, { scroll: true, focus: !videoSection.contains(link) });
+});
+window.addEventListener("hashchange", selectLinkedVideo);
+window.addEventListener("load", selectLinkedVideo);
+selectLinkedVideo();
+
 if ("ResizeObserver" in window) {
   new ResizeObserver(updateHeaderHeight).observe(header);
 } else {

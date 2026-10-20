@@ -13,6 +13,7 @@ python3 -m http.server 8765 --bind 127.0.0.1
 
 Open http://127.0.0.1:8765/. Publishing is separate from local editing; use the
 repository's existing hosting workflow when the changes are ready.
+
 Do not test contact submissions by opening `index.html` as a `file://` URL;
 the JavaScript handler preserves the draft and asks you to use the local server.
 
@@ -22,6 +23,19 @@ to identify the embedding page; a missing referrer can cause player error 153.
 The iframe explicitly uses `referrerpolicy="strict-origin-when-cross-origin"`,
 as recommended by YouTube. If error 153 persists over HTTP, check whether a
 browser extension or privacy setting is stripping the referrer.
+
+## Maintain the video series
+
+`#intro-video` contains one player and four episode buttons. Episode IDs
+`#video-1` through `#video-4` are shareable and used by contextual links from the
+requests, official update, recruitment example, document explanation and FAQ.
+Keep each episode button's `data-video-id`, number and title consistent.
+The script switches the existing player, title, active episode and YouTube link
+without autoplay or scrolling when an episode button is pressed. Preserve the privacy-enhanced embed domain and referrer policy.
+Without JavaScript, explicit fallback links open the corresponding YouTube videos and
+contextual anchors lead to those cards. Verify direct links and Back/Forward
+navigation after changing the series. The episode choices use four columns on
+desktop and two columns at 700 px and below.
 
 ## Files
 

@@ -54,7 +54,7 @@
       rel="stylesheet"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=video-series-2" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
@@ -114,7 +114,7 @@
             >
           </p>
           <div class="hero-actions">
-            <a class="action-link" href="#intro-video">Δείτε το βίντεο</a>
+            <a class="action-link" href="#intro-video">Δείτε τα βίντεο</a>
             <a class="action-link action-link-secondary" href="#request"
               >Τι ζητάμε</a
             >
@@ -132,14 +132,23 @@
 
       <section id="intro-video" aria-labelledby="intro-video-title">
         <div class="container">
-          <h2 id="intro-video-title">Δείτε το πρόβλημα με απλά λόγια</h2>
+          <h2 id="intro-video-title">Η υπόθεση σε τέσσερα σύντομα βίντεο</h2>
           <p class="section-intro">
-            Γιατί η αποδοχή του πτυχίου δεν αρκεί πάντα για την πρόσβαση σε μια
-            θέση; Το βίντεο εξηγεί το εμπόδιο στις απαιτούμενες επαγγελματικές
-            εγγραφές και άδειες και παρουσιάζει τα αιτήματα του σωματείου.
+            Το πρόβλημα, η ευθύνη για τη ρύθμιση, τα εμπόδια στις προσλήψεις
+            και η διαφορά των βεβαιώσεων. Δείτε τη σειρά από την αρχή ή
+            επιλέξτε το θέμα που σας ενδιαφέρει.
           </p>
+          <h3
+            class="video-current-title"
+            id="video-current-title"
+            tabindex="-1"
+            aria-live="polite"
+          >
+            1. Το πρόβλημα με απλά λόγια
+          </h3>
           <iframe
             class="intro-video-player"
+            id="series-video-player"
             src="https://www.youtube-nocookie.com/embed/GVUyZBFkvMk"
             title="Το πρόβλημα επαγγελματικής κατοχύρωσης των αποφοίτων Ενεργειακής Τεχνολογίας — πρώτο ενημερωτικό βίντεο"
             width="800"
@@ -150,10 +159,67 @@
             allowfullscreen
           ></iframe>
           <p class="intro-video-link">
-            <a href="https://www.youtube.com/watch?v=GVUyZBFkvMk"
-              >Παρακολουθήστε το στο YouTube</a
+            <a
+              id="series-youtube-link"
+              href="https://www.youtube.com/watch?v=GVUyZBFkvMk"
+              >Παρακολουθήστε το βίντεο 1 στο YouTube</a
             >
           </p>
+          <ol class="video-episodes" aria-label="Επιλέξτε βίντεο">
+            <li>
+              <button
+                class="video-episode" id="video-1"
+                type="button" aria-controls="series-video-player" disabled
+                data-video-id="GVUyZBFkvMk" data-video-number="1"
+                aria-pressed="true"
+              >
+                <span class="video-episode-number" aria-hidden="true">01</span>
+                <span class="video-episode-title">Το πρόβλημα με απλά λόγια</span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="video-episode" id="video-2"
+                type="button" aria-controls="series-video-player" disabled
+                data-video-id="9GECahnHbNM" data-video-number="2"
+                aria-pressed="false"
+              >
+                <span class="video-episode-number" aria-hidden="true">02</span>
+                <span class="video-episode-title">Ποιος έχει την ευθύνη να προχωρήσει η ρύθμιση;</span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="video-episode" id="video-3"
+                type="button" aria-controls="series-video-player" disabled
+                data-video-id="JPAS9oD3XxE" data-video-number="3"
+                aria-pressed="false"
+              >
+                <span class="video-episode-number" aria-hidden="true">03</span>
+                <span class="video-episode-title">Αποδεκτό πτυχίο, αλλά αποκλεισμός από τη θέση</span>
+              </button>
+            </li>
+            <li>
+              <button
+                class="video-episode" id="video-4"
+                type="button" aria-controls="series-video-player" disabled
+                data-video-id="IYscru8hDro" data-video-number="4"
+                aria-pressed="false"
+              >
+                <span class="video-episode-number" aria-hidden="true">04</span>
+                <span class="video-episode-title">Γιατί δεν αρκούν οι υπάρχουσες βεβαιώσεις;</span>
+              </button>
+            </li>
+          </ol>
+          <noscript>
+            <p>Για εναλλαγή βίντεο μέσα στη σελίδα χρειάζεται JavaScript. Μπορείτε επίσης να τα δείτε στο YouTube:</p>
+            <ul>
+              <li><a href="https://www.youtube.com/watch?v=GVUyZBFkvMk">1. Το πρόβλημα με απλά λόγια</a></li>
+              <li><a href="https://www.youtube.com/watch?v=9GECahnHbNM">2. Ποιος έχει την ευθύνη να προχωρήσει η ρύθμιση;</a></li>
+              <li><a href="https://www.youtube.com/watch?v=JPAS9oD3XxE">3. Αποδεκτό πτυχίο, αλλά αποκλεισμός από τη θέση</a></li>
+              <li><a href="https://www.youtube.com/watch?v=IYscru8hDro">4. Γιατί δεν αρκούν οι υπάρχουσες βεβαιώσεις;</a></li>
+            </ul>
+          </noscript>
         </div>
       </section>
 
@@ -306,6 +372,9 @@
               μπορεί να αποκτήσει την απαιτούμενη βεβαίωση εγγραφής.
             </p>
           </aside>
+          <p class="related-video-link">
+            <a href="#video-4">Δείτε το βίντεο 4: γιατί δεν αρκούν οι υπάρχουσες βεβαιώσεις;</a>
+          </p>
           <details class="documents-sources">
             <summary>Πηγές και τεκμηρίωση</summary>
             <p class="source-note">
@@ -362,6 +431,9 @@
             δημιουργία ενός μητρώου δεν απονέμει από μόνη της όλα τα
             επαγγελματικά δικαιώματα.
           </p>
+          <p class="related-video-link">
+            <a href="#video-2">Δείτε το βίντεο 2: ποιος έχει την ευθύνη να προχωρήσει η ρύθμιση;</a>
+          </p>
           <div
             id="benefits"
             class="request-outcome"
@@ -401,6 +473,9 @@
               >. Η πηγή περιγράφει την κατάσταση εκείνης της περιόδου· δεν
               τεκμηριώνει τη σημερινή κατάσταση και δεν αποτελεί απάντηση στην
               επιστολή του σωματείου του Ιουνίου 2025.
+            </p>
+            <p class="related-video-link">
+              <a href="#video-3">Δείτε το βίντεο 3: αποδεκτό πτυχίο και εμπόδια στις προσλήψεις</a>.
             </p>
           </details>
         </div>
@@ -766,6 +841,9 @@
                     >Προκήρυξη 1ΓΒ/2026 — ΦΕΚ ΑΣΕΠ 11/25.02.2026 (PDF, σελ. 1994
                     και 1997)</a
                   >
+                </p>
+                <p class="related-video-link">
+                  <a href="#video-3">Δείτε το βίντεο 3 για το εμπόδιο στις προσλήψεις</a>.
                 </p>
               </div>
             </div>
@@ -1295,6 +1373,9 @@
                 και
                 <a href="#legal">τα σχετικά έγγραφα για εγγραφές και άδειες</a>.
               </p>
+              <p class="related-video-link">
+                <a href="#video-4">Δείτε το βίντεο 4 για τη διαφορά των βεβαιώσεων</a>.
+              </p>
             </div>
           </details>
           <details class="faq-item">
@@ -1494,6 +1575,6 @@
       </div>
       <div class="news-reader-content"></div>
     </dialog>
-    <script src="site.js" defer></script>
+    <script src="site.js?v=video-series-2" defer></script>
   </body>
 </html>
