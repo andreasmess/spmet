@@ -1380,6 +1380,43 @@ footer a:hover {
 }
 
 /* Timeline Styles */
+.timeline-scroll-hint {
+  margin-top: 24px;
+  color: var(--primary-color);
+  font-size: 0.95rem;
+}
+
+.timeline-scroll {
+  max-height: min(68vh, 46rem);
+  max-height: min(68dvh, 46rem);
+  margin-top: 12px;
+  padding: 20px clamp(12px, 2vw, 24px);
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  scrollbar-color: var(--primary-color) #e4edf1;
+  scroll-padding-block: 20px;
+  border: 1px solid #c8d9e1;
+  border-radius: 12px;
+  background: #f7fafc;
+}
+
+.timeline-scroll .timeline {
+  margin-top: 0;
+}
+
+@media print {
+  .timeline-scroll {
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    border: 0;
+  }
+
+  .timeline-scroll-hint {
+    display: none;
+  }
+}
+
 .timeline {
   position: relative;
   margin: 40px 0 0 120px;

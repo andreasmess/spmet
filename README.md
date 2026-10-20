@@ -56,6 +56,12 @@ parliamentary interventions do not by themselves establish regulatory progress.
 
 ## Maintain legal sources and membership information
 
+The legal timeline is inside `.timeline-scroll`, a labelled, keyboard-focusable
+region with a viewport-relative maximum height. Keep the scroll hint, native
+touch / keyboard scrolling, existing entry IDs and print override: printing must
+show the full timeline. When adding entries, check direct links into the scroller
+and Tab access to source links with JavaScript enabled and disabled.
+
 Each `.timeline-item` has a `.source-note`. Prefer original documents or official
 publications. The four ministry documents dated 27/06/1995, 30/09/2009,
 07/02/2012, and 15/06/2012 are linked to scanned PDFs in `assets/`.
