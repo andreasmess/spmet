@@ -195,7 +195,7 @@ window.addEventListener("hashchange", openLinkedArticle);
 window.addEventListener("load", () => {
   updateHeaderHeight();
   openLinkedArticle();
-  const target = Array.from(document.querySelectorAll("main section[id]"))
+  const target = Array.from(document.querySelectorAll("main section[id], main [data-section-anchor]"))
     .find((section) => `#${section.id}` === window.location.hash);
   if (target) target.scrollIntoView();
 });
