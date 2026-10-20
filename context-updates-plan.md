@@ -1,7 +1,7 @@
 # ΣΠΜΕΤ website — implementation plan for context review updates
 
 Date: 20 October 2026
-Status: Stages 1–2 completed on 20 October 2026; later stages remain planned.
+Status: Stages 1–2 completed; Stage 3 precedent implemented on 20 October 2026, with case and correspondence additions deferred for missing evidence. Stages 4–5 remain planned.
 Evidence baseline: [docs/context.md](docs/context.md).
 Implementation baseline: the current local [index.html](index.html), not a verified snapshot of the deployed site.
 
@@ -29,7 +29,7 @@ Keep the existing `plan.md` and `execution-plan.md` as records of the earlier wo
 |---|---|---|---|
 | 1 | Evidence inventory and confirmed wording | Current files and available originals | Completed 20/10/2026; evidence limits recorded |
 | 2 | Updated requests and explanatory FAQ | Source checks for the relevant wording | Completed 20/10/2026 |
-| 3 | ASEP case, correspondence and precedent entries | Evidence for each entry; independently deliverable | Planned |
+| 3 | ASEP case, correspondence and precedent entries | Evidence for each entry; independently deliverable | Precedent implemented 20/10/2026; case and correspondence deferred for missing originals |
 | 4 | Historical clarification | Verified chronology or a narrowly worded editorial note | Planned |
 | 5 | Content, link and presentation checks | All implemented entries | Planned |
 
@@ -74,7 +74,7 @@ Acceptance: the main requests identify the procedure, include both directions, a
 
 Targets: preserve `#legal-asep-2026`; add timeline entries `#legal-region-2024` and `#legal-asep-decision-2026` in chronological order. Context: §4.
 
-- [ ] Retain the 25/02/2026 entry as evidence of the notice's requirements.
+- [x] Retain the 25/02/2026 entry as evidence of the notice's requirements.
 - [ ] Add a 27/03/2024 entry explaining the regional response's verified scope and exact issuing authority.
 - [ ] Add a 24/09/2026 entry identifying decision 802/2026 and the verified disposition of the objection.
 - [ ] Explain the chain clearly: accepted title → separate certificate requirement → registration obstacle → actual exclusion in the documented case.
@@ -87,15 +87,19 @@ Draft summary to use only after checking the originals:
 
 Acceptance: the page distinguishes the notice from the decision, describes rejection of the objection accurately, and supports every case-specific claim. It does not state that ASEP acted unlawfully, that the candidate was entitled to appointment, or that all graduates face identical requirements. If the originals remain unavailable, defer these entries and retain the existing requirements example.
 
+Stage 3 disposition: no new originals were found in the project or targeted public searches. The regional and individual ASEP additions, their cross-links and any outcome-based explainer link remain deferred. The requirements entry is unchanged. See the [Stage 3 record](context-updates-stage-3.md) for the evidence needed to resume these items.
+
 ## 4. Add relevant court precedent with explicit limits
 
 Target: a concise entry in `#legal`, using a new stable ID such as `#legal-ste-2025`. Context: §6.
 
-- [ ] Prioritize 903/2025 because the dossier connects it to the same Article 257 procedure for another engineering specialty.
-- [ ] If using the published Athens Bar Association summary, identify it as a summary and link directly to it: <https://nomikovima.dsa.gr/web/el/node/707>.
-- [ ] Prefer the full judgment for detailed claims. Add 904/2025 only to the extent supported by an independently checked source.
-- [ ] Explain why the precedent matters and that its application to ΣΠΜΕΤ requires examination of the particular circumstances.
-- [ ] Keep any legal claim attributed to the source that supports it.
+- [x] Prioritize 903/2025 because the dossier connects it to the same Article 257 procedure for another engineering specialty.
+- [x] Identify the published Athens Bar Association source as a summary and link directly to it: <https://nomikovima.dsa.gr/web/el/node/707>.
+- [x] Use the checked summary for a limited attributed account; defer detailed claims and 904/2025 pending full judgments or further checked sources.
+- [x] Explain why the precedent matters and that its application to ΣΠΜΕΤ requires examination of the particular circumstances.
+- [x] Keep any legal claim attributed to the source that supports it.
+
+Implemented `#legal-ste-2025` between the 2022 and February 2026 entries, using W4 from Stage 1 and a source note identifying the published summary. No full judgment is presented as checked.
 
 Acceptance: visitors can distinguish a precedent for another specialty from a ruling about ΣΠΜΕΤ. The entry does not imply automatic registration or allocation of particular rights. Success percentages, compensation predictions and unverified penalty amounts are excluded from this update.
 
@@ -107,13 +111,15 @@ Targets: the existing letters announcement, `#news-letters`, and a concise timel
 - [ ] Identify the protocol as evidence for the Education Ministry correspondence; do not attribute it to the separate Development Ministry submission.
 - [ ] Add a source link to the letter and a publication-ready acknowledgement or routing record where available.
 - [ ] Describe absence of a substantive reply only with a dated attribution to the association and after checking for later replies.
-- [ ] Keep the 2025 letter separate from `assets/epistoli.pdf`, which contains the October 2026 parliamentary submission and its June 2026 attachment.
+- [x] Keep the 2025 letter separate from `assets/epistoli.pdf`, which contains the October 2026 parliamentary submission and its June 2026 attachment.
 
 Conditional response-status wording:
 
 > Σύμφωνα με ενημέρωση του σωματείου στις [επιβεβαιωμένη ημερομηνία], δεν είχε ληφθεί ουσιαστική απάντηση στην επιστολή προς το Υπουργείο Παιδείας.
 
 Acceptance: chronology, protocol, recipient and reply status are supported and dated. Replace the date placeholder before publication. If the correspondence is unavailable, retain the existing general announcement and record the missing evidence here.
+
+Stage 3 disposition: the 2025 originals, routing record and a dated reply-status confirmation remain unavailable. The existing general announcement is unchanged; the protocol-specific timeline entry and non-response statement remain deferred. This does not imply that the ministry has or has not replied since the dossier's original account.
 
 ## 6. Clarify the department's historical dates
 
