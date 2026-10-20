@@ -48,13 +48,12 @@ browser extension or privacy setting is stripping the referrer.
 Articles expand without JavaScript. With JavaScript, opening a link such as
 `/#news-kke` also expands the matching article automatically.
 
-## Update the progress summary
+## Update the official process information
 
-Edit `#progress` when a new, confirmed development is published. Update its
-visible date and `datetime` together, and link each summary card to supporting
-news or a source. The date describes the information summarized, not the day
-the website code was edited. Do not infer a pending response or an outcome from
-silence; describe what has actually been published.
+Keep the dated official information in `#official-update` separate from the
+association's news in `#news`. Cite the source and its information date; do not
+present an old reply as proof of today's status. Meetings, press coverage and
+parliamentary interventions do not by themselves establish regulatory progress.
 
 ## Maintain legal sources and membership information
 
