@@ -28,9 +28,8 @@ browser extension or privacy setting is stripping the referrer.
 - `index.html`: page content, source links, and search/sharing metadata.
 - `styles.css`: responsive layout and accessibility styles.
 - `site.js`: menu, header offsets, article links, membership enquiry, and contact feedback.
-- `assets/`: optimized images served by the website.
-- Root JPG files: original image sources; retain them when rebuilding images.
-- `tools/optimize_images.py`: regenerates optimized images from those originals.
+- `assets/`: WebP images served by the website and the JPEG sharing card.
+- `tools/optimize_images.py`: rebuilds the JPEG sharing card from `assets/logo.webp`.
 
 ## Add a news update
 
@@ -41,9 +40,9 @@ browser extension or privacy setting is stripping the referrer.
    Preserve IDs of existing articles so shared links keep working.
 4. Add the publication date using `<time datetime="YYYY-MM-DD">`, a short summary,
    and the full article inside `.news-article`. Describe the image in its `alt` text.
-5. For a new image, add its original JPG, extend the source list in the image tool,
-   regenerate assets, and set `src`, `srcset`, `width`, and `height` to the generated
-   paths and dimensions. Keep `loading="lazy"` on images below the header.
+5. For a new image, add optimized WebP files in `assets/` for the required display
+   sizes, then set `src`, `srcset`, `width`, and `height` to those paths and dimensions.
+   Keep `loading="lazy"` on images below the header.
 
 Articles expand without JavaScript. With JavaScript, opening a link such as
 `/#news-kke` also expands the matching article automatically.
@@ -71,22 +70,16 @@ professional registration. Keep the FAQ consistent with any updated process.
 
 ## Rebuild image assets
 
-The development-only tool requires Python and Pillow:
+The development-only sharing-card tool requires Python and Pillow:
 
 ```sh
 python3 -m pip install Pillow
 python3 tools/optimize_images.py
 ```
 
-The tool preserves aspect ratios, corrects EXIF orientation, removes unnecessary
-metadata, and exports WebP images plus a 1200×630 JPEG sharing card. Root originals
-are unchanged. The sharing composition and Greek text are defined in
-`tools/optimize_images.py`; it uses the original logo and does not resize the logo
-into a sharing card. Rebuild only this card with:
-
-```sh
-python3 tools/optimize_images.py --social-only
-```
+The tool creates the 1200×630 JPEG sharing card. Its composition and Greek text are
+defined in `tools/optimize_images.py`; it uses `assets/logo.webp` in the logo area
+and does not resize the logo into a sharing card.
 
 The tool uses Arial on macOS or DejaVu Sans on Linux. For another system, or to
 reproduce a card with specific fonts, provide Greek-capable TTF files with

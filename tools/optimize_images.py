@@ -1,4 +1,4 @@
-"""Rebuild web images from the original JPGs. Requires Pillow; no site runtime dependencies."""
+"""Rebuild the social sharing card from the optimized logo. Requires Pillow."""
 
 import argparse
 from pathlib import Path
@@ -6,21 +6,6 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / "assets"
-OUTPUT.mkdir(exist_ok=True)
-
-
-def export(source, name, width, format="WEBP", quality=82):
-    with Image.open(ROOT / source) as original:
-        image = ImageOps.exif_transpose(original).convert("RGB")
-        image.thumbnail((width, width * 2), Image.Resampling.LANCZOS)
-        options = {"quality": quality}
-        if format == "WEBP":
-            options["method"] = 6
-        else:
-            options.update(optimize=True, progressive=True)
-        path = OUTPUT / name
-        image.save(path, format, **options)
-        print("{}: {} × {}, {:,} bytes".format(name, *image.size, path.stat().st_size))
 
 
 def social_font(override, bold=False):
@@ -46,7 +31,7 @@ def export_social(regular, bold):
     draw = ImageDraw.Draw(image)
     draw.rectangle((56, 60, 66, 568), fill="#88395b")
     draw.rounded_rectangle((1000, 52, 1144, 206), radius=12, fill="white")
-    with Image.open(ROOT / "logo.jpg") as original:
+    with Image.open(OUTPUT / "logo.webp") as original:
         logo = ImageOps.exif_transpose(original).convert("RGB")
         logo.thumbnail((120, 130), Image.Resampling.LANCZOS)
         image.paste(logo, (1072 - logo.width // 2, 129 - logo.height // 2))
@@ -71,18 +56,10 @@ def export_social(regular, bold):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--social-only", action="store_true", help="Only rebuild the sharing card")
     parser.add_argument("--social-font", type=Path, help="Greek-capable regular TTF font")
     parser.add_argument("--social-bold-font", type=Path, help="Greek-capable bold TTF font")
     args = parser.parse_args()
     export_social(social_font(args.social_font), social_font(args.social_bold_font, bold=True))
-    if not args.social_only:
-        export("logo.jpg", "logo-small.webp", 96)
-        export("logo.jpg", "logo.webp", 384)
-        for source in ["synantisi.jpg", "synantisi2.jpg", "epistoles.jpg"]:
-            stem = Path(source).stem
-            export(source, stem + ".webp", 1000)
-            export(source, stem + "-480.webp", 480)
 
 
 if __name__ == "__main__":
