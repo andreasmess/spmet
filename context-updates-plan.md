@@ -1,7 +1,7 @@
 # ΣΠΜΕΤ website — implementation plan for context review updates
 
 Date: 20 October 2026
-Status: Stage 1 completed on 20 October 2026; website changes have not started.
+Status: Stages 1–2 completed on 20 October 2026; later stages remain planned.
 Evidence baseline: [docs/context.md](docs/context.md).
 Implementation baseline: the current local [index.html](index.html), not a verified snapshot of the deployed site.
 
@@ -28,7 +28,7 @@ Keep the existing `plan.md` and `execution-plan.md` as records of the earlier wo
 | Stage | Deliverable | Dependencies | Status |
 |---|---|---|---|
 | 1 | Evidence inventory and confirmed wording | Current files and available originals | Completed 20/10/2026; evidence limits recorded |
-| 2 | Updated requests and explanatory FAQ | Source checks for the relevant wording | Planned |
+| 2 | Updated requests and explanatory FAQ | Source checks for the relevant wording | Completed 20/10/2026 |
 | 3 | ASEP case, correspondence and precedent entries | Evidence for each entry; independently deliverable | Planned |
 | 4 | Historical clarification | Verified chronology or a narrowly worded editorial note | Planned |
 | 5 | Content, link and presentation checks | All implemented entries | Planned |
@@ -56,11 +56,13 @@ Stage 1 deliverable: [evidence inventory, publication decisions and prepared wor
 
 Targets: `#request`, `#legal-2019`, and the FAQ “Τι ζητά το σωματείο;”. Context: §§5, 9 and 13.
 
-- [ ] Add an explicit request to complete the Article 257 procedure for both study directions.
-- [ ] Keep access to the required registrations, licences and certificates as a separate practical objective.
-- [ ] Link the request to `#legal-2019` so the visitor can inspect its legal basis.
-- [ ] Reconsider “ιστορική νομοθετική βάση” in the timeline. Describe the provision precisely, without suggesting it is obsolete or asserting its current legal status without checking amendments.
-- [ ] Keep the request distinct from a claim that a court has already established a specific obligation toward ΣΠΜΕΤ.
+- [x] Add an explicit request to complete the Article 257 procedure for both study directions.
+- [x] Keep access to the required registrations, licences and certificates as a separate practical objective.
+- [x] Link the request to `#legal-2019` so the visitor can inspect its legal basis.
+- [x] Replace “ιστορική νομοθετική βάση” with the Gazette publication date and dated ministry attribution, without asserting a complete current-law check.
+- [x] Keep the request distinct from a claim that a court has already established a specific obligation toward ΣΠΜΕΤ.
+
+Stage 2 result: [implementation and verification record](context-updates-stage-2.md). Implemented W1–W3 from the Stage 1 record. The equality demand remains expressly a demand, with “ισότιμων Τμημάτων” removed to avoid implying established professional equivalence.
 
 Proposed main-request wording, subject to source verification:
 
@@ -129,10 +131,10 @@ Acceptance: the historical account is coherent and sourced. If precise milestone
 
 Targets: `#request`, the FAQ list and the existing university-role FAQ. Context: the opening distinctions and §§7, 8 and 13.
 
-- [ ] Add a FAQ titled “Η διεκδίκηση αφορά μετατροπή του πτυχίου σε πανεπιστημιακό τίτλο;”.
-- [ ] Explain that the subject is professional regulation and access to registrations and licences.
-- [ ] Review “ισότιμων Τμημάτων” in the main request. If retained as an equality demand, make its requested nature clear and avoid implying that professional equivalence has already been legally established.
-- [ ] Keep the explanation consistent with the existing statement that a university certificate alone does not create professional equivalence or registration rights.
+- [x] Add a FAQ titled “Η διεκδίκηση αφορά μετατροπή του πτυχίου σε πανεπιστημιακό τίτλο;”.
+- [x] Explain that the subject is professional regulation and access to registrations and licences.
+- [x] Review “ισότιμων Τμημάτων” in the main request; remove the qualifier and frame equal professional rights explicitly as a demand.
+- [x] Keep the explanation consistent with the existing statement that a university certificate alone does not create professional equivalence or registration rights.
 
 Proposed FAQ answer:
 
