@@ -1,7 +1,7 @@
 # ΣΠΜΕΤ website — implementation plan for context review updates
 
 Date: 20 October 2026
-Status: Stages 1–2 completed; Stage 3 precedent implemented, with case and correspondence additions deferred for missing evidence. Stage 4 omitted at the user's request on 20 October 2026. Stage 5 remains planned.
+Status: Stages 1–2 and 5 completed; Stage 3 precedent implemented, with case and correspondence additions deferred for missing evidence. Stage 4 omitted at the user's request. Final verification completed on 20 October 2026; no deployment performed.
 Evidence baseline: [docs/context.md](docs/context.md).
 Implementation baseline: the current local [index.html](index.html), not a verified snapshot of the deployed site.
 
@@ -31,7 +31,7 @@ Keep the existing `plan.md` and `execution-plan.md` as records of the earlier wo
 | 2 | Updated requests and explanatory FAQ | Source checks for the relevant wording | Completed 20/10/2026 |
 | 3 | ASEP case, correspondence and precedent entries | Evidence for each entry; independently deliverable | Precedent implemented 20/10/2026; case and correspondence deferred for missing originals |
 | 4 | Historical clarification | Verified chronology or a narrowly worded editorial note | Omitted at user request 20/10/2026; draft removed |
-| 5 | Content, link and presentation checks | All implemented entries | Planned |
+| 5 | Content, link and presentation checks | All implemented entries | Completed 20/10/2026; deferred evidence remains open |
 
 ## 1. Establish the evidence inventory
 
@@ -152,17 +152,19 @@ Acceptance: the FAQ and requests use the distinction consistently and preserve t
 
 ## 8. Verify the implementation
 
-- [ ] Review the final content against the relevant context sections and checked sources. Recheck any newly introduced legal assertions against current authoritative material.
-- [ ] Preserve the dated treatment of ministry reply 19352/ΥΣ/17-02-2026 and its separation from the association's 2025 correspondence.
-- [ ] Verify unique IDs, existing permalinks, internal anchors, chronological timeline order, document filenames, PDF page references and link targets.
-- [ ] Preview through local HTTP at mobile and desktop widths, including 1280 px and 1281 px around the navigation breakpoint. Check text wrapping, horizontal overflow and heading visibility below the fixed header.
-- [ ] Check the changed FAQ with keyboard navigation and JavaScript disabled; check any new article link if an article is added.
-- [ ] Confirm that public PDFs open, remain legible and contain no unintentionally exposed personal data.
-- [ ] Add concise maintenance guidance to `README.md` for source dates, case outcomes and the new document links.
-- [ ] Record implemented items, evidence still missing, changed files and verification results in this plan. Run relevant existing checks; no new test framework is needed for these content edits.
+- [x] Review the final content against the relevant context sections and checked sources. Reopen the four core references; no new legal assertions were introduced in Stage 5.
+- [x] Preserve the dated treatment of ministry reply 19352/ΥΣ/17-02-2026 and its separation from the association's 2025 correspondence.
+- [x] Verify unique IDs, existing permalinks, internal anchors, chronological timeline order, document filenames, relevant PDF page references and link targets.
+- [x] Preview through local HTTP at mobile and desktop widths, including 1280 px and 1281 px around the navigation breakpoint. Check text wrapping, horizontal overflow and heading visibility below the fixed header.
+- [x] Check all ten FAQ items with keyboard navigation and JavaScript disabled; check the three existing article permalinks and native disclosures.
+- [x] Verify all existing PDF pages parse and render, and their checksums match the earlier reviewed copies. No new PDF or individual-case material was published; this does not constitute a new blanket privacy audit of existing documents.
+- [x] Add concise maintenance guidance to `README.md` for source dates, case outcomes and the new document links.
+- [x] Record implemented items, evidence still missing, changed files and verification results in this plan. Run relevant checks without adding a new test framework.
+
+Stage 5 result: [final verification and handoff](context-updates-stage-5.md). The implemented scope passes the checks. Stage 3's source-dependent additions remain open; Stage 4 remains omitted by user instruction. No additional website changes or deployment were needed in Stage 5.
 
 ## Completion criteria
 
-All six review findings have either a verified implementation or a specific deferred item with its missing evidence identified. The main public account connects the requested regulatory procedure with the documented practical consequences. Historical reporting, legal interpretation and current association requests remain distinguishable.
+Each review finding must have a verified implementation, a specific evidence deferral, or an explicit user decision to omit it. The implemented public account connects the requested regulatory procedure with the documented recruitment requirements. Historical reporting, legal interpretation and current association requests remain distinguishable. The individual ASEP outcome must not be presented as independently verified until its original evidence is checked.
 
 The implementation deliverable is a reviewed local diff with working source links and a verification record. Deployment is a separate task; this plan does not publish the website.

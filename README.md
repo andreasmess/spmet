@@ -64,6 +64,27 @@ descriptive link text that identifies PDFs as scanned copies. The 07/02/2012
 document includes 19/01/2012 in its protocol reference; use its printed document
 date in the timeline. Recheck summaries against the source before changing legal claims.
 
+The requests and FAQ link to `#legal-2019` for Article 257. Keep its Gazette
+publication date distinct from the date of the ministry account and from the
+date a source was checked. The original Gazette is not a consolidated amendment
+history. Keep requests for current information separate from dated status reports.
+
+The `#legal-ste-2025` entry links to a published Athens Bar Association summary
+of ΣτΕ 903/2025. Identify it as a summary of a case about another specialty;
+do not describe it as a full judgment or automatic recognition for our graduates.
+
+The `#legal-asep-2026` entry establishes recruitment requirements. Add an
+individual case outcome only after checking the original decision and relevant
+regional response, using redacted copies for publication where necessary. Check
+document identifiers, dates, issuing services and PDF page references. Keep the
+June 2025 correspondence separate from `assets/epistoli.pdf`, which contains
+the October 2026 parliamentary submission and its June 2026 attachment. Any
+non-response statement needs a dated confirmation from the association.
+
+Track missing evidence in `context-updates-plan.md` and the associated stage
+records. The historical clarification was omitted at the user's request; do
+not reintroduce it as part of these updates.
+
 Membership eligibility and required documents must come from the association.
 The contact form sends an enquiry; it does not register a member or issue a
 professional registration. Keep the FAQ consistent with any updated process.
