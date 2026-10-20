@@ -80,9 +80,21 @@ python3 tools/optimize_images.py
 ```
 
 The tool preserves aspect ratios, corrects EXIF orientation, removes unnecessary
-metadata, and exports WebP images plus a JPEG sharing image. Root originals are
-unchanged. If the logo changes, update the social-image dimensions in the page
-metadata to match the generated `assets/social.jpg`.
+metadata, and exports WebP images plus a 1200×630 JPEG sharing card. Root originals
+are unchanged. The sharing composition and Greek text are defined in
+`tools/optimize_images.py`; it uses the original logo and does not resize the logo
+into a sharing card. Rebuild only this card with:
+
+```sh
+python3 tools/optimize_images.py --social-only
+```
+
+The tool uses Arial on macOS or DejaVu Sans on Linux. For another system, or to
+reproduce a card with specific fonts, provide Greek-capable TTF files with
+`--social-font /path/to/regular.ttf --social-bold-font /path/to/bold.ttf`.
+For identical pixels across machines, use the same font files and Pillow version.
+Keep the image dimensions and alternative text in page metadata consistent with
+the generated `assets/social.jpg`.
 
 ## Search and sharing
 
@@ -90,6 +102,13 @@ Maintain the title, description, Open Graph, and Twitter metadata in the page
 head. Canonical, Open Graph URL, and sharing-image URL use `https://spmet.gr/`.
 If the domain changes, update them together with `CNAME`. Sharing previews need
 the deployed image and may remain cached by the receiving platform.
+
+The video sharing controls use the public canonical URL with `#intro-video`,
+including in local previews. Native sharing is shown when available. Copying
+reports success only after the clipboard write succeeds; missing permissions or
+API support leave a selectable manual-copy field. Without JavaScript the public
+sharing link remains available. Test success, cancellation and failure with
+mocked browser APIs to avoid opening real sharing destinations.
 
 ## Contact and privacy
 

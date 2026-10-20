@@ -58,6 +58,63 @@ function updateHeaderHeight() {
   );
 }
 updateHeaderHeight();
+
+// Share the public page even when previewing on a local HTTP server.
+const shareButton = document.querySelector("[data-share-page]");
+const copyButton = document.querySelector("[data-copy-link]");
+const shareStatus = document.querySelector(".video-share-status");
+const manualShare = document.querySelector(".video-share-manual");
+const shareInput = document.querySelector("#share-url");
+const publicShareUrl = new URL("#intro-video", document.querySelector('link[rel="canonical"]').href).href;
+shareInput.value = publicShareUrl;
+copyButton.hidden = false;
+shareButton.hidden = typeof navigator.share !== "function";
+
+function setShareBusy(busy) {
+  shareButton.disabled = busy;
+  copyButton.disabled = busy;
+}
+
+function offerManualCopy(message) {
+  shareStatus.textContent = message;
+  manualShare.hidden = false;
+  shareInput.focus();
+  shareInput.select();
+}
+
+copyButton.addEventListener("click", async () => {
+  shareStatus.textContent = "";
+  if (typeof navigator.clipboard?.writeText !== "function") {
+    offerManualCopy("Επιλέξτε και αντιγράψτε τον σύνδεσμο από το πεδίο παρακάτω.");
+    return;
+  }
+  setShareBusy(true);
+  try {
+    await navigator.clipboard.writeText(publicShareUrl);
+    manualShare.hidden = true;
+    shareStatus.textContent = "Ο σύνδεσμος αντιγράφηκε.";
+  } catch {
+    offerManualCopy("Η αυτόματη αντιγραφή δεν ολοκληρώθηκε. Αντιγράψτε τον σύνδεσμο από το πεδίο παρακάτω.");
+  } finally {
+    setShareBusy(false);
+  }
+});
+
+shareButton.addEventListener("click", async () => {
+  shareStatus.textContent = "";
+  setShareBusy(true);
+  try {
+    await navigator.share({ title: document.title, url: publicShareUrl });
+    shareStatus.textContent = "Η κοινοποίηση ολοκληρώθηκε.";
+  } catch (error) {
+    if (error.name !== "AbortError") {
+      offerManualCopy("Η κοινοποίηση δεν ολοκληρώθηκε. Μπορείτε να αντιγράψετε τον σύνδεσμο από το πεδίο παρακάτω.");
+    }
+  } finally {
+    setShareBusy(false);
+  }
+});
+
 if ("ResizeObserver" in window) {
   new ResizeObserver(updateHeaderHeight).observe(header);
 } else {
