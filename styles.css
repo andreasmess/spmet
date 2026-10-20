@@ -370,6 +370,21 @@ section h3 {
   text-align: left;
 }
 
+.official-update {
+  position: relative;
+  max-width: 800px;
+  margin: 32px auto 0;
+  padding: 24px;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 8px;
+  background: #fff;
+  line-height: 1.7;
+}
+
+.official-update h3 {
+  text-align: left;
+}
+
 @media (max-width: 600px) {
   .document-types {
     grid-template-columns: 1fr;
