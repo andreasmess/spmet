@@ -103,13 +103,6 @@ head. Canonical, Open Graph URL, and sharing-image URL use `https://spmet.gr/`.
 If the domain changes, update them together with `CNAME`. Sharing previews need
 the deployed image and may remain cached by the receiving platform.
 
-The video sharing controls use the public canonical URL with `#intro-video`,
-including in local previews. Native sharing is shown when available. Copying
-reports success only after the clipboard write succeeds; missing permissions or
-API support leave a selectable manual-copy field. Without JavaScript the public
-sharing link remains available. Test success, cancellation and failure with
-mocked browser APIs to avoid opening real sharing destinations.
-
 ## Contact and privacy
 
 The form posts to the existing Formspree endpoint in `index.html`. `site.js`
