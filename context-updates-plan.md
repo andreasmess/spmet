@@ -1,7 +1,7 @@
 # ΣΠΜΕΤ website — implementation plan for context review updates
 
 Date: 20 October 2026
-Status: Stages 1–2 and 5 completed; Stage 3 precedent implemented, with case and correspondence additions deferred for missing evidence. Stage 4 omitted at the user's request. Final verification completed on 20 October 2026; no deployment performed.
+Status: Stages 1–2 and 5 completed; Stage 3 precedent and association-attributed correspondence implemented, with original case and correspondence documents still outstanding. Stage 4 omitted at the user's request. Verification and correspondence follow-up dated 20 October 2026; no deployment performed.
 Evidence baseline: [docs/context.md](docs/context.md).
 Implementation baseline: the current local [index.html](index.html), not a verified snapshot of the deployed site.
 
@@ -29,7 +29,7 @@ Keep the existing `plan.md` and `execution-plan.md` as records of the earlier wo
 |---|---|---|---|
 | 1 | Evidence inventory and confirmed wording | Current files and available originals | Completed 20/10/2026; evidence limits recorded |
 | 2 | Updated requests and explanatory FAQ | Source checks for the relevant wording | Completed 20/10/2026 |
-| 3 | ASEP case, correspondence and precedent entries | Evidence for each entry; independently deliverable | Precedent implemented 20/10/2026; case and correspondence deferred for missing originals |
+| 3 | ASEP case, correspondence and precedent entries | Evidence for each entry; independently deliverable | Precedent and attributed correspondence implemented 20/10/2026; ASEP case and original correspondence records remain outstanding |
 | 4 | Historical clarification | Verified chronology or a narrowly worded editorial note | Omitted at user request 20/10/2026; draft removed |
 | 5 | Content, link and presentation checks | All implemented entries | Completed 20/10/2026; deferred evidence remains open |
 
@@ -107,19 +107,19 @@ Acceptance: visitors can distinguish a precedent for another specialty from a ru
 
 Targets: the existing letters announcement, `#news-letters`, and a concise timeline entry `#legal-association-2025`. Confirm the existing article ID before editing. Context: §3.
 
-- [ ] Verify the 23/06/2025 letter, 28/06/2025 email and protocol 5297/30-06-2025 as distinct events.
-- [ ] Identify the protocol as evidence for the Education Ministry correspondence; do not attribute it to the separate Development Ministry submission.
-- [ ] Add a source link to the letter and a publication-ready acknowledgement or routing record where available.
-- [ ] Describe absence of a substantive reply only with a dated attribution to the association and after checking for later replies.
+- [x] Separate the 23/06/2025 letter date, 28/06/2025 email dispatch and 5297/30-06-2025 registration as events reported in the association's records. The originals have not been independently checked and will not be uploaded at this stage, per user instruction.
+- [x] Identify the number as belonging to the Education Ministry correspondence, as corroborated by reference (ε) of the association's 09/06/2026 decision; do not attribute it to the Development Ministry submission or describe it as independently verified proof of receipt.
+- [x] Link the available published 2026 reference to the 2025 letter, explicitly identifying the limits of that source. The original letter and acknowledgement / routing record remain unpublished and outstanding.
+- [x] Add an association-attributed no-substantive-reply statement dated 20/10/2026, based on the user's explicit confirmation during this follow-up.
 - [x] Keep the 2025 letter separate from `assets/epistoli.pdf`, which contains the October 2026 parliamentary submission and its June 2026 attachment.
 
-Conditional response-status wording:
+Implemented response-status wording:
 
-> Σύμφωνα με ενημέρωση του σωματείου στις [επιβεβαιωμένη ημερομηνία], δεν είχε ληφθεί ουσιαστική απάντηση στην επιστολή προς το Υπουργείο Παιδείας.
+> Σύμφωνα με ενημέρωση του σωματείου στις 20/10/2026, δεν έχει ληφθεί ουσιαστική απάντηση στην επιστολή προς το Υπουργείο Παιδείας.
 
-Acceptance: chronology, protocol, recipient and reply status are supported and dated. Replace the date placeholder before publication. If the correspondence is unavailable, retain the existing general announcement and record the missing evidence here.
+Acceptance: distinguish the association's account from independently checked originals; separate the three dates and the two ministry submissions. Link the available corroborating reference accurately and date the association's reply-status update. Do not publish missing originals or imply that the 2026 attachment is the original 2025 letter.
 
-Stage 3 disposition: the 2025 originals, routing record and a dated reply-status confirmation remain unavailable. The existing general announcement is unchanged; the protocol-specific timeline entry and non-response statement remain deferred. This does not imply that the ministry has or has not replied since the dossier's original account.
+Follow-up, 20/10/2026: the user instructed that the original files will not be uploaded yet and confirmed that no reply had been given as of today. Implemented `#legal-association-2025` and appended the chronology and dated reply status to `#news-letters`, preserving its original text. Checked the actual scanned 09/06/2026 decision in `assets/epistoli.pdf`: reference (ε), PDF page 2, names the Education Ministry letter 5297/30.06.2025. This supports an attributed reference without supplying the original or proving its routing. The original 23/06/2025 letter, email trail, ministerial acknowledgement and separate Development Ministry receipt remain outstanding. See [correspondence implementation record](context-updates-correspondence.md).
 
 ## 6. Clarify the department's historical dates
 
@@ -161,7 +161,7 @@ Acceptance: the FAQ and requests use the distinction consistently and preserve t
 - [x] Add concise maintenance guidance to `README.md` for source dates, case outcomes and the new document links.
 - [x] Record implemented items, evidence still missing, changed files and verification results in this plan. Run relevant checks without adding a new test framework.
 
-Stage 5 result: [final verification and handoff](context-updates-stage-5.md). The implemented scope passes the checks. Stage 3's source-dependent additions remain open; Stage 4 remains omitted by user instruction. No additional website changes or deployment were needed in Stage 5.
+Stage 5 result: [final verification and handoff](context-updates-stage-5.md). The implemented scope passed those checks. The subsequent correspondence update and its focused checks are recorded separately in [the correspondence follow-up](context-updates-correspondence.md). Original-source follow-ups remain open; Stage 4 remains omitted by user instruction. No deployment was performed.
 
 ## Completion criteria
 

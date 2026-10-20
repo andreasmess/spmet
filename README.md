@@ -81,6 +81,15 @@ June 2025 correspondence separate from `assets/epistoli.pdf`, which contains
 the October 2026 parliamentary submission and its June 2026 attachment. Any
 non-response statement needs a dated confirmation from the association.
 
+The `#legal-association-2025` timeline entry and `#news-letters` article separate
+the reported letter, email and registration dates. These are attributed to the
+association's records. Reference (ε) on PDF page 2 of `assets/epistoli.pdf`
+corroborates the number of the Education Ministry letter; it is not its original
+or a ministry acknowledgement. The no-substantive-reply statement is an
+association update dated 20/10/2026. Change that status only with a new dated
+confirmation, and do not transfer the protocol number to the separate
+Development Ministry submission.
+
 Track missing evidence in `context-updates-plan.md` and the associated stage
 records. The historical clarification was omitted at the user's request; do
 not reintroduce it as part of these updates.
